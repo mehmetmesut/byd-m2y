@@ -29,10 +29,10 @@
     </td>
     <td width="50%" align="center" valign="top">
       <img src="docs/logos/eq.png" width="64" height="64" alt="M2Y EQ"><br>
-      <b>M2Y EQ</b> <sub>1.25.07.68.1 · 128 KB</sub><br>
+      <b>M2Y EQ</b> <sub>1.25.07.68.2 · 128 KB</sub><br>
       System-wide equalizer tuned for the Infinity sound system.<br>
       <img src="docs/screenshots/eq.jpg" width="100%" alt="M2Y EQ equalizer screen"><br>
-      <a href="https://github.com/mehmetmesut/byd-m2y-eq/releases/download/1.25.07.68.1/M2YEQ_1.25.07.68.1.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-eq">Source</a>
+      <a href="https://github.com/mehmetmesut/byd-m2y-eq/releases/download/1.25.07.68.2/M2YEQ_1.25.07.68.2.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-eq">Source</a>
     </td>
   </tr>
   <tr>
@@ -97,7 +97,7 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 
 **M2Y Tube** (1.25.07.68.0, 27.3 MB) is a touch-first YouTube client based on SmartTube (MIT). Quality runs from 360p up to 1080p60, defaulting to 720p30 on the hardware VP9 decoder. Tap for controls, swipe left or right for the previous or next video, and the quality and speed buttons sit above the controls. Music mode turns off the picture and shows the video cover, which saves data and CPU. Audio keeps playing in the background. It is ad-free without signing in; signing in with your own account is optional.
 
-**M2Y EQ** (1.25.07.68.1, 128 KB) is a system-wide equalizer written in plain Kotlin with no dependencies. It is a single effect on all system audio with 10 or 25 bands aligned to the real frequency bins of the engine, so every band is audible, plus a -1 dB limiter. Sound strength comes in Clean, Balanced and Strong; preset intensity runs from 0 to 200 %; bass and volume boost go up to +15 dB; and a level-matched comparison makes A/B listening fair. Presets: M2Y, BYD (reference), AI, Pop, Rock, Rap, Classical and Speech, with "save to M2Y" and a factory reset. It removes itself from the signal during phone and CarPlay calls, so no echo appears.
+**M2Y EQ** (1.25.07.68.2, 128 KB) is a system-wide equalizer written in plain Kotlin with no dependencies. It is a single effect on all system audio with 10 or 25 bands aligned to the real frequency bins of the engine, so every band is audible, plus a -1 dB limiter. Sound strength comes in Clean, Balanced and Strong; preset intensity runs from 0 to 200 %; bass and volume boost go up to +15 dB; and a level-matched comparison makes A/B listening fair. Presets: M2Y, BYD (reference), AI, Pop, Rock, Rap, Classical and Speech, with "save to M2Y" and a factory reset. It removes itself from the signal during phone and CarPlay calls, so no echo appears.
 
 **M2Y Board** (1.25.07.68.0, 4.5 MB) is a plain Turkish Q keyboard based on HeliBoard (GPL-3.0). Turkish Q is the default whatever the system language is, the number row is on, the clipboard button is always visible and emoji sit on the bottom row. Settings are kept simple. It has no internet permission, collects nothing and never backs up what you type.
 
@@ -120,7 +120,7 @@ adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
 adb install -r M2YBoard_1.25.07.68.0.apk
 adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
-adb install -r M2YEQ_1.25.07.68.1.apk
+adb install -r M2YEQ_1.25.07.68.2.apk
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
@@ -188,7 +188,7 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 
 **M2Y Tube** (1.25.07.68.0, 27,3 MB), SmartTube (MIT) tabanlı, dokunmatiği öne alan bir YouTube istemcisidir. Kalite 360p'den 1080p60'a kadar çıkar; varsayılan, donanım VP9 çözücüyle 720p30'dur. Denetimler için dokunun, önceki ya da sonraki video için sola veya sağa kaydırın; kalite ve hız düğmeleri denetimlerin üstündedir. Müzik modu görüntüyü kapatıp video kapağını gösterir, böylece veri ve işlemci tasarrufu sağlar. Ses arka planda çalmaya devam eder. Oturum açmadan reklamsızdır; isterseniz kendi hesabınızla oturum açabilirsiniz.
 
-**M2Y EQ** (1.25.07.68.1, 128 KB), saf Kotlin ile yazılmış, bağımlılıksız, sistem genelinde çalışan bir ekolayzırdır. Tüm sistem sesine uygulanan tek bir efekttir; motorun gerçek frekans kutularına hizalı 10 ya da 25 bandı vardır (her bant duyulur) ve −1 dB sınırlayıcı içerir. Ses gücü Temiz, Dengeli ve Güçlü olarak seçilir; ön ayar yoğunluğu %0–200 arasındadır; bas ve ses yükseltme +15 dB'ye çıkar; eşit ses düzeyli karşılaştırma A/B dinlemeyi adil kılar. Ön ayarlar: M2Y, BYD (referans), AI, Pop, Rock, Rap, Klasik ve Konuşma; "M2Y'ye kaydet" ve fabrika ayarına dönüş de var. Telefon ve CarPlay görüşmesinde kendini sinyal yolundan çıkarır, böylece eko oluşmaz.
+**M2Y EQ** (1.25.07.68.2, 128 KB), saf Kotlin ile yazılmış, bağımlılıksız, sistem genelinde çalışan bir ekolayzırdır. Tüm sistem sesine uygulanan tek bir efekttir; motorun gerçek frekans kutularına hizalı 10 ya da 25 bandı vardır (her bant duyulur) ve −1 dB sınırlayıcı içerir. Ses gücü Temiz, Dengeli ve Güçlü olarak seçilir; ön ayar yoğunluğu %0–200 arasındadır; bas ve ses yükseltme +15 dB'ye çıkar; eşit ses düzeyli karşılaştırma A/B dinlemeyi adil kılar. Ön ayarlar: M2Y, BYD (referans), AI, Pop, Rock, Rap, Klasik ve Konuşma; "M2Y'ye kaydet" ve fabrika ayarına dönüş de var. Telefon ve CarPlay görüşmesinde kendini sinyal yolundan çıkarır, böylece eko oluşmaz.
 
 **M2Y Board** (1.25.07.68.0, 4,5 MB), HeliBoard (GPL-3.0) tabanlı sade bir Türkçe Q klavyedir. Sistem dili ne olursa olsun Türkçe Q varsayılandır, rakam satırı açıktır, pano düğmesi her zaman görünür, emoji alt satırdadır. Ayarlar sade tutulmuştur. İnternet izni yoktur, hiçbir şey toplamaz ve yazdıklarınızı asla yedeklemez.
 
@@ -211,7 +211,7 @@ adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
 adb install -r M2YBoard_1.25.07.68.0.apk
 adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
-adb install -r M2YEQ_1.25.07.68.1.apk
+adb install -r M2YEQ_1.25.07.68.2.apk
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
@@ -279,7 +279,7 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 
 **M2Y Tube** (1.25.07.68.0, 27,3 МБ) — клиент YouTube с упором на сенсорное управление, основан на SmartTube (MIT). Качество от 360p до 1080p60, по умолчанию 720p30 на аппаратном декодере VP9. Нажмите, чтобы вызвать элементы управления; смахните влево или вправо для перехода к предыдущему или следующему видео; кнопки качества и скорости расположены над элементами управления. Режим «Музыка» отключает картинку и показывает обложку видео, что экономит трафик и процессор. Звук продолжает играть в фоне. Без входа в аккаунт реклама не показывается; при желании можно войти в свой аккаунт.
 
-**M2Y EQ** (1.25.07.68.1, 128 КБ) — системный эквалайзер на чистом Kotlin без зависимостей. Это один эффект на весь системный звук: 10 или 25 полос, выровненных по реальным частотным ячейкам движка (каждая полоса слышна), плюс ограничитель −1 дБ. Громкость звучания выбирается из режимов «Чистый», «Сбалансированный» и «Мощный»; интенсивность пресета — от 0 до 200 %; усиление баса и громкости — до +15 дБ; сравнение с выравниванием уровня делает A/B-прослушивание честным. Пресеты: M2Y, BYD (эталон), AI, Pop, Rock, Rap, «Классика» и «Речь», есть «Сохранить в M2Y» и сброс к заводским настройкам. Во время телефонных разговоров и звонков через CarPlay эквалайзер выходит из тракта, поэтому эхо не возникает.
+**M2Y EQ** (1.25.07.68.2, 128 КБ) — системный эквалайзер на чистом Kotlin без зависимостей. Это один эффект на весь системный звук: 10 или 25 полос, выровненных по реальным частотным ячейкам движка (каждая полоса слышна), плюс ограничитель −1 дБ. Громкость звучания выбирается из режимов «Чистый», «Сбалансированный» и «Мощный»; интенсивность пресета — от 0 до 200 %; усиление баса и громкости — до +15 дБ; сравнение с выравниванием уровня делает A/B-прослушивание честным. Пресеты: M2Y, BYD (эталон), AI, Pop, Rock, Rap, «Классика» и «Речь», есть «Сохранить в M2Y» и сброс к заводским настройкам. Во время телефонных разговоров и звонков через CarPlay эквалайзер выходит из тракта, поэтому эхо не возникает.
 
 **M2Y Board** (1.25.07.68.0, 4,5 МБ) — простая турецкая клавиатура Q на основе HeliBoard (GPL-3.0). Турецкая раскладка Q используется по умолчанию независимо от языка системы, цифровой ряд включён, кнопка буфера обмена всегда на виду, эмодзи — в нижнем ряду. Настройки намеренно простые. Разрешения на интернет нет, ничего не собирается, набранный текст никогда не копируется.
 
@@ -302,7 +302,7 @@ adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
 adb install -r M2YBoard_1.25.07.68.0.apk
 adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
-adb install -r M2YEQ_1.25.07.68.1.apk
+adb install -r M2YEQ_1.25.07.68.2.apk
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
