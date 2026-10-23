@@ -8,7 +8,7 @@
   <img alt="no tracking" src="https://img.shields.io/badge/tracking-none-eb6834">
   <img alt="free" src="https://img.shields.io/badge/price-free-1baf7a">
   <img alt="licence" src="https://img.shields.io/github/license/mehmetmesut/byd-m2y?color=6250d6">
-  <a href="https://github.com/mehmetmesut/byd-m2y/stargazers"><img alt="stars" src="https://img.shields.io/github/stars/mehmetmesut/byd-m2y?style=flat&color=2a78d6"></a>
+  <a href="https://github.com/mehmetmesut/byd-m2y"><img alt="stars" src="https://img.shields.io/github/stars/mehmetmesut/byd-m2y?style=flat&color=2a78d6"></a>
 </p>
 <p align="center">
   <a href="#app-gallery"><b>⬇ Downloads</b></a> ·
