@@ -13,6 +13,7 @@
 <p align="center">
   <a href="#app-gallery"><b>⬇ Downloads</b></a> ·
   <a href="https://byd.mehmetmesut.com">byd.mehmetmesut.com</a> ·
+  <a href="https://byd.mehmetmesut.com/#kurulum"><b>📲 Install with Obtainium</b></a> ·
   <a href="https://github.com/mehmetmesut/byd-m2y"><b>⭐ Star this repo</b></a>
 </p>
 <p align="center"><img src="docs/screenshots/byd.jpg" width="49%" alt="M2Y BYD showing the car's data as pictures"> <img src="docs/screenshots/tube-player.jpg" width="49%" alt="M2Y Tube playing a video on the BYD screen"></p>
@@ -99,7 +100,7 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 | Hardware video decoder | M2Y Tube is capped at 1080p60 and defaults to hardware VP9 at 720p30 (AV1 off); M2Y TV uses the hardware decoder with a single player. |
 | `heapgrowthlimit` of 256 MB per app | Small memory footprints: Music mode drops the video, M2Y TV runs one player, APKs range from 53 KB to 27.3 MB. |
 | Infinity sound system | M2Y EQ is tuned to the engine's real frequency bins and steps aside during phone calls. |
-| Stock installer blocks third-party APKs ("driving safety") | Installation over ADB, or the one-click Windows installer. |
+| Stock installer blocks third-party APKs ("driving safety") | One-time car preparation over ADB, then install and update in the car with Obtainium; or the one-click Windows installer. |
 | BYD's vehicle API is signature-protected | M2Y BYD shows only the data that is readable, read-only. State of charge and tyre data are not shown. |
 
 ### The apps
@@ -120,7 +121,14 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 
 ### Install
 
-The apps are installed from a computer onto a head unit that has **wireless ADB enabled**. How to enable ADB differs between DiLink software versions, so this guide covers cars where ADB is already on.
+**Recommended: install and update in the car with [Obtainium](https://github.com/ImranR98/Obtainium).** BYD's stock package installer stops every install started in the car (browser, file manager, Aurora, F-Droid, Obtainium) with a "please do not install third party apps" notice whose only button cancels it. So the car is prepared **once** over wireless ADB; after that you install and update in the car, without a computer.
+
+1. **Once, from a Windows PC:** run [`tools/m2y-kurulum.cmd`](tools/m2y-kurulum.cmd) (also at [byd.mehmetmesut.com/m2y-kurulum.cmd](https://byd.mehmetmesut.com/m2y-kurulum.cmd)), enter the car's IP address and answer **E** to "Araci hazirlayalim mi?" (prepare the car?). It installs the **unlocked package installer** (signed by BYD, downloaded from a public community repository and checked against SHA-256 `d1617512…`; this project does not host it) and **Obtainium 1.7.2** (official release, SHA-256 checked), and lets Obtainium install apps. To undo: `adb uninstall com.android.packageinstaller`.
+2. **In the car:** open [byd.mehmetmesut.com/#kurulum](https://byd.mehmetmesut.com/#kurulum) in Cromite and tap **Add all M2Y apps to Obtainium**. In Obtainium tap **Okay** on the two first-run notes, then **Continue** in **Import apps**; all six apps are added. You can also tap **Add** in Obtainium and paste a repository URL such as `https://github.com/mehmetmesut/byd-m2y-tube`.
+3. Tap the download icon next to an app, or **Install/update apps** for all. On the BYD warning tap **OK**.
+4. **Updates:** Obtainium tells you about new versions and one tap installs them (Android 10 cannot update silently). Allow Obtainium in the BYD **Auto-start** list so it can check in the background.
+
+**From a computer (ADB):** the apps can also be installed straight from a computer onto a head unit that has **wireless ADB enabled**. How to enable ADB differs between DiLink software versions, so this guide covers cars where ADB is already on.
 
 1. **Easy way (Windows):** run [`tools/m2y-kurulum.cmd`](tools/m2y-kurulum.cmd) from this repository (also downloadable from [byd.mehmetmesut.com/m2y-kurulum.cmd](https://byd.mehmetmesut.com/m2y-kurulum.cmd)). It asks for the car's IP address, downloads Google's platform-tools if they are missing, downloads the apps you choose, verifies their SHA-256 sums and installs them.
 2. **By hand:** install the [Android platform-tools](https://developer.android.com/tools/releases/platform-tools), find the car's Wi-Fi IP address, download the APKs from the gallery above, then:
@@ -141,7 +149,6 @@ adb disconnect
 
 3. **Auto-start:** open M2Y EQ once (and M2Y BYD, if you use the trip log) and allow them in the BYD **Auto-start** list so they keep working after a restart. M2Y BYD uses the location permission only for GPS speed, heading, altitude and trip distance; the position itself is never shown, stored or sent.
 4. **Launcher:** if a new icon does not show up, restart the SealNav/stock launcher (switching the car off and on also works).
-5. **Installing straight from the car's browser** only works on head units whose **stock BYD package installer has been unlocked**: the stock one blocks third-party APKs with a "driving safety" notice. This project does not distribute BYD files. If you have a computer, the steps above work on every car.
 
 ### Compatibility
 
@@ -159,9 +166,11 @@ There is no advertising code, no analytics and no tracking in any M2Y app, and n
 
 **Will it void my warranty?** The apps do not modify the car's system, but I cannot make promises about BYD's policies. Everything is provided as is, without warranty, so install at your own risk. Do not operate the screen while driving.
 
-**Why ADB?** The stock BYD package installer blocks third-party APKs with a "driving safety" notice, and ADB is the standard Android way around it.
+**Why do I get an error when installing from Aurora Store?** Two reasons. The M2Y apps are not on Google Play, and Aurora only downloads from Play. And BYD's stock package installer stops every install that does not come from the BYD store (browser, file manager, Aurora, F-Droid, Obtainium) with a "please do not install third party apps" notice. The fix is the one-time car preparation above (unlocked installer + Obtainium).
 
-**How do I update?** Run `adb install -r` with the newer APK, or run the Windows installer again. All APKs share the same M2Y signature, so the update installs over the old version and keeps your settings.
+**Why ADB?** The stock BYD package installer blocks third-party APKs with a "driving safety" notice, and ADB is the standard Android way around it. With Obtainium you need it only once, to prepare the car.
+
+**How do I update?** With Obtainium: tap its update notice. From a computer: run `adb install -r` with the newer APK, or run the Windows installer again. All APKs share the same M2Y signature, so the update installs over the old version and keeps your settings.
 
 **Which BYD models work?** Tested on the SEAL U DM-i only; other BYD models with an Android 10+ arm64 screen should work but are untested.
 
@@ -193,7 +202,7 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 | Donanım video çözücü | M2Y Tube en fazla 1080p60 ile sınırlıdır, varsayılanı donanım VP9 ile 720p30'dur (AV1 kapalı); M2Y TV donanım çözücüyü tek oynatıcıyla kullanır. |
 | Uygulama başına 256 MB `heapgrowthlimit` | Küçük bellek ayak izi: Müzik modu görüntüyü kapatır, M2Y TV tek oynatıcı çalıştırır, APK'ler 53 KB ile 27,3 MB arasındadır. |
 | Infinity ses sistemi | M2Y EQ motorun gerçek frekans kutularına göre ayarlıdır ve telefon görüşmesinde devreden çıkar. |
-| Stok yükleyici üçüncü taraf APK'leri engeller ("sürüş güvenliği") | ADB ile kurulum ya da tek tıkla Windows kurucusu. |
+| Stok yükleyici üçüncü taraf APK'leri engeller ("sürüş güvenliği") | Bir kez ADB ile araç hazırlığı, sonra araçta Obtainium ile kurulum ve güncelleme; ya da tek tıkla Windows kurucusu. |
 | BYD'nin araç API'si imza korumalıdır | M2Y BYD yalnız okunabilen veriyi, salt okunur olarak gösterir. Şarj durumu (SoC) ve lastik verisi gösterilmez. |
 
 ### Uygulamalar
@@ -214,7 +223,14 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 
 ### Kurulum
 
-Uygulamalar, **kablosuz ADB'si açık** bir multimedya ekranına bilgisayardan kurulur. ADB'yi açma yöntemi DiLink yazılım sürümüne göre değişir; bu rehber ADB'nin zaten açık olduğu araçlar içindir.
+**Önerilen: araçta [Obtainium](https://github.com/ImranR98/Obtainium) ile kurun ve güncelleyin.** BYD'nin stok paket yükleyicisi araçta başlatılan her kurulumu (tarayıcı, dosya yöneticisi, Aurora, F-Droid, Obtainium) "please do not install third party apps" uyarısıyla durdurur; uyarının tek düğmesi kurulumu kapatır. Bu yüzden araç kablosuz ADB ile **bir kez** hazırlanır; sonrasında kurulum ve güncelleme bilgisayarsız, araçta yapılır.
+
+1. **Bir kez, Windows bilgisayardan:** [`tools/m2y-kurulum.cmd`](tools/m2y-kurulum.cmd) dosyasını çalıştırın ([byd.mehmetmesut.com/m2y-kurulum.cmd](https://byd.mehmetmesut.com/m2y-kurulum.cmd) adresinden de indirilir), aracın IP adresini yazın ve "Araci hazirlayalim mi?" sorusuna **E** deyin. Betik **kilitsiz paket yükleyiciyi** (BYD imzalı; herkese açık bir topluluk deposundan indirilir ve SHA-256 `d1617512…` ile doğrulanır, bu proje barındırmaz) ve **Obtainium 1.7.2**'yi (resmî sürüm, SHA-256 doğrulanır) kurar, Obtainium'a kurulum izni verir. Geri almak için: `adb uninstall com.android.packageinstaller`.
+2. **Araçta:** Cromite ile [byd.mehmetmesut.com/#kurulum](https://byd.mehmetmesut.com/#kurulum) adresini açın ve **Tüm M2Y uygulamalarını Obtainium'a ekle** düğmesine dokunun. Obtainium'da ilk açılıştaki iki bilgi penceresini **Okay** ile geçin, **Import apps** penceresinde **Continue**'ya dokunun; altı uygulama eklenir. Ya da Obtainium'da **Add**'e dokunup `https://github.com/mehmetmesut/byd-m2y-tube` gibi bir depo adresi yapıştırın.
+3. Uygulamanın yanındaki indirme simgesine ya da hepsi için **Install/update apps** düğmesine dokunun. BYD uyarısında **OK**'e dokunun.
+4. **Güncellemeler:** yeni sürüm çıkınca Obtainium bildirir, tek dokunuşla kurulur (Android 10 sessiz güncelleme yapamaz). Arka planda denetim için BYD **Otomatik Başlatma** listesinde Obtainium'a izin verin.
+
+**Bilgisayardan (ADB):** uygulamalar **kablosuz ADB'si açık** bir multimedya ekranına doğrudan bilgisayardan da kurulabilir. ADB'yi açma yöntemi DiLink yazılım sürümüne göre değişir; bu rehber ADB'nin zaten açık olduğu araçlar içindir.
 
 1. **Kolay yol (Windows):** bu depodaki [`tools/m2y-kurulum.cmd`](tools/m2y-kurulum.cmd) dosyasını çalıştırın (dosya [byd.mehmetmesut.com/m2y-kurulum.cmd](https://byd.mehmetmesut.com/m2y-kurulum.cmd) adresinden de indirilebilir). Aracın IP adresini sorar, eksikse Google'ın platform-tools paketini indirir, seçtiğiniz uygulamaları indirip SHA-256 özetlerini doğrular ve kurar.
 2. **Elle:** [Android platform-tools](https://developer.android.com/tools/releases/platform-tools) paketini kurun, aracın Wi-Fi IP adresini öğrenin, yukarıdaki galeriden APK'leri indirin, sonra:
@@ -235,7 +251,6 @@ adb disconnect
 
 3. **Otomatik başlatma:** M2Y EQ'yu (yolculuk kaydını kullanıyorsanız M2Y BYD'yi de) bir kez açın ve BYD **Otomatik Başlatma** listesinde izin verin; böylece yeniden başlatmadan sonra da çalışırlar. M2Y BYD konum iznini yalnız GPS hızı, yönü, rakımı ve yolculuk mesafesi için kullanır; konumun kendisi gösterilmez, kaydedilmez, gönderilmez.
 4. **Başlatıcı:** yeni simge görünmezse SealNav/stok başlatıcıyı yeniden başlatın (aracı kapatıp açmak da yeter).
-5. **Doğrudan araçtaki tarayıcıdan kurulum** yalnız **stok BYD paket yükleyicisinin kilidi açılmış** araçlarda çalışır: stok yükleyici üçüncü taraf APK'leri "sürüş güvenliği" uyarısıyla engeller. Bu proje BYD'ye ait dosya dağıtmaz. Bilgisayarınız varsa yukarıdaki adımlar her araçta çalışır.
 
 ### Uyumluluk
 
@@ -253,9 +268,11 @@ Hiçbir M2Y uygulamasında reklam kodu, analiz ya da izleme yoktur; kişisel ver
 
 **Garantiyi bozar mı?** Uygulamalar aracın sistemini değiştirmez, ancak BYD'nin politikaları hakkında söz veremem. Her şey olduğu gibi, garantisiz sunulur; kurulum kendi sorumluluğunuzdadır. Sürüş sırasında ekranla uğraşmayın.
 
-**Neden ADB?** Stok BYD paket yükleyicisi üçüncü taraf APK'leri "sürüş güvenliği" uyarısıyla engeller; ADB, bunu aşmanın standart Android yoludur.
+**Aurora Store'dan kurunca neden hata alıyorum?** İki nedeni var. M2Y uygulamaları Google Play'de yok, Aurora ise yalnız Play'den indirir. Ayrıca BYD'nin stok paket yükleyicisi BYD mağazası dışından gelen her kurulumu (tarayıcı, dosya yöneticisi, Aurora, F-Droid, Obtainium) "please do not install third party apps" uyarısıyla durdurur. Çözüm yukarıdaki bir kerelik araç hazırlığıdır (kilitsiz yükleyici + Obtainium).
 
-**Nasıl güncellerim?** Yeni APK ile `adb install -r` çalıştırın ya da Windows kurucusunu yeniden çalıştırın. Tüm APK'ler aynı M2Y imzasını taşır; bu yüzden güncelleme eski sürümün üstüne kurulur ve ayarlarınız korunur.
+**Neden ADB?** Stok BYD paket yükleyicisi üçüncü taraf APK'leri "sürüş güvenliği" uyarısıyla engeller; ADB, bunu aşmanın standart Android yoludur. Obtainium ile yalnız bir kez, araç hazırlığı için gerekir.
+
+**Nasıl güncellerim?** Obtainium ile: güncelleme bildirimine dokunun. Bilgisayardan: yeni APK ile `adb install -r` çalıştırın ya da Windows kurucusunu yeniden çalıştırın. Tüm APK'ler aynı M2Y imzasını taşır; bu yüzden güncelleme eski sürümün üstüne kurulur ve ayarlarınız korunur.
 
 **Hangi BYD modelleri çalışır?** Yalnız SEAL U DM-i üzerinde denendi; Android 10 ve üzeri, arm64 ekranlı diğer BYD modellerinin çalışması beklenir ancak denenmemiştir.
 
@@ -287,7 +304,7 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 | Аппаратный видеодекодер | M2Y Tube ограничен 1080p60, по умолчанию использует аппаратный VP9 в 720p30 (AV1 выключен); M2Y TV работает с аппаратным декодером через один плеер. |
 | `heapgrowthlimit` 256 МБ на приложение | Малый объём памяти: режим «Музыка» отключает картинку, M2Y TV запускает один плеер, APK занимают от 53 КБ до 27,3 МБ. |
 | Аудиосистема Infinity | M2Y EQ настроен по реальным частотным ячейкам движка и отключается во время телефонных разговоров. |
-| Штатный установщик блокирует сторонние APK («безопасность движения») | Установка через ADB или одним щелчком установщиком для Windows. |
+| Штатный установщик блокирует сторонние APK («безопасность движения») | Однократная подготовка автомобиля через ADB, затем установка и обновление прямо в машине через Obtainium; или установщик для Windows в один щелчок. |
 | API автомобиля BYD защищён подписью | M2Y BYD показывает только доступные для чтения данные и только для чтения. Уровень заряда (SoC) и данные о шинах не показываются. |
 
 ### Приложения
@@ -308,7 +325,14 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 
 ### Установка
 
-Приложения устанавливаются с компьютера на головное устройство с **включённым беспроводным ADB**. Способ включения ADB зависит от версии ПО DiLink, поэтому это руководство рассчитано на автомобили, где ADB уже включён.
+**Рекомендуется: устанавливайте и обновляйте прямо в машине через [Obtainium](https://github.com/ImranR98/Obtainium).** Штатный установщик пакетов BYD останавливает любую установку, запущенную в автомобиле (браузер, файловый менеджер, Aurora, F-Droid, Obtainium), предупреждением «please do not install third party apps», единственная кнопка которого отменяет установку. Поэтому автомобиль **один раз** подготавливают через беспроводной ADB; после этого установка и обновления выполняются в машине, без компьютера.
+
+1. **Один раз, с компьютера на Windows:** запустите [`tools/m2y-kurulum.cmd`](tools/m2y-kurulum.cmd) (также на [byd.mehmetmesut.com/m2y-kurulum.cmd](https://byd.mehmetmesut.com/m2y-kurulum.cmd)), введите IP-адрес автомобиля и ответьте **E** на вопрос «Araci hazirlayalim mi?» (подготовить автомобиль?). Сценарий установит **разблокированный установщик пакетов** (подписан BYD, скачивается из открытого репозитория сообщества и проверяется по SHA-256 `d1617512…`; проект его не хранит) и **Obtainium 1.7.2** (официальный релиз, проверка SHA-256) и разрешит Obtainium устанавливать приложения. Отмена: `adb uninstall com.android.packageinstaller`.
+2. **В автомобиле:** откройте [byd.mehmetmesut.com/#kurulum](https://byd.mehmetmesut.com/#kurulum) в Cromite и нажмите **Добавить все приложения M2Y в Obtainium**. В Obtainium закройте два окна первого запуска кнопкой **Okay**, затем нажмите **Continue** в окне **Import apps** — будут добавлены все шесть приложений. Можно также нажать **Add** в Obtainium и вставить адрес репозитория, например `https://github.com/mehmetmesut/byd-m2y-tube`.
+3. Нажмите значок загрузки рядом с приложением или **Install/update apps** для всех. В предупреждении BYD нажмите **OK**.
+4. **Обновления:** Obtainium сообщает о новых версиях, установка — одним нажатием (Android 10 не умеет обновлять без участия пользователя). Разрешите Obtainium в списке **автозапуска** BYD, чтобы он проверял обновления в фоне.
+
+**С компьютера (ADB):** приложения можно также установить с компьютера на головное устройство с **включённым беспроводным ADB**. Способ включения ADB зависит от версии ПО DiLink, поэтому это руководство рассчитано на автомобили, где ADB уже включён.
 
 1. **Простой способ (Windows):** запустите [`tools/m2y-kurulum.cmd`](tools/m2y-kurulum.cmd) из этого репозитория (файл также можно скачать на [byd.mehmetmesut.com/m2y-kurulum.cmd](https://byd.mehmetmesut.com/m2y-kurulum.cmd)). Установщик спросит IP-адрес автомобиля, при необходимости скачает platform-tools от Google, загрузит выбранные приложения, проверит их суммы SHA-256 и установит их.
 2. **Вручную:** установите [Android platform-tools](https://developer.android.com/tools/releases/platform-tools), узнайте IP-адрес автомобиля в Wi-Fi, скачайте APK из галереи выше, затем:
@@ -329,7 +353,6 @@ adb disconnect
 
 3. **Автозапуск:** откройте M2Y EQ один раз (и M2Y BYD, если вы используете журнал поездок) и разрешите их в списке **автозапуска** BYD, чтобы они работали и после перезагрузки. M2Y BYD использует разрешение на геолокацию только для скорости по GPS, курса, высоты и расстояния поездки; сами координаты не показываются, не сохраняются и не передаются.
 4. **Лаунчер:** если новый значок не появился, перезапустите SealNav/штатный лаунчер (достаточно выключить и снова включить автомобиль).
-5. **Установка прямо из браузера автомобиля** работает только на устройствах, у которых **разблокирован штатный установщик пакетов BYD**: штатный установщик блокирует сторонние APK предупреждением о «безопасности движения». Проект не распространяет файлы BYD. Если у вас есть компьютер, шаги выше работают на любом автомобиле.
 
 ### Совместимость
 
@@ -347,9 +370,11 @@ adb disconnect
 
 **Лишит ли это гарантии?** Приложения не изменяют систему автомобиля, но я не могу ничего обещать от имени политики BYD. Всё предоставляется «как есть», без гарантий, поэтому устанавливайте на свой риск. Не пользуйтесь экраном во время движения.
 
-**Почему ADB?** Штатный установщик пакетов BYD блокирует сторонние APK предупреждением о «безопасности движения», а ADB — стандартный способ Android обойти это.
+**Почему при установке из Aurora Store возникает ошибка?** Причин две. Приложений M2Y нет в Google Play, а Aurora скачивает только из Play. Кроме того, штатный установщик BYD останавливает любую установку не из магазина BYD (браузер, файловый менеджер, Aurora, F-Droid, Obtainium) предупреждением «please do not install third party apps». Решение — однократная подготовка автомобиля, описанная выше (разблокированный установщик + Obtainium).
 
-**Как обновлять?** Выполните `adb install -r` с новым APK или снова запустите установщик для Windows. Все APK подписаны одним ключом M2Y, поэтому обновление устанавливается поверх старой версии, а настройки сохраняются.
+**Почему ADB?** Штатный установщик пакетов BYD блокирует сторонние APK предупреждением о «безопасности движения», а ADB — стандартный способ Android обойти это. С Obtainium он нужен только один раз — для подготовки автомобиля.
+
+**Как обновлять?** С Obtainium: нажмите на его уведомление об обновлении. С компьютера: выполните `adb install -r` с новым APK или снова запустите установщик для Windows. Все APK подписаны одним ключом M2Y, поэтому обновление устанавливается поверх старой версии, а настройки сохраняются.
 
 **Какие модели BYD подойдут?** Проверено только на SEAL U DM-i; остальные модели BYD с экраном на Android 10+ и arm64, как ожидается, будут работать, но не проверялись.
 
