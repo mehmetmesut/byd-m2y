@@ -60,6 +60,15 @@
       <a href="https://byd.mehmetmesut.com/indir/M2YBYD_1.0.0.apk"><b>⬇ APK</b></a> · Source: after in-car testing
     </td>
     <td width="50%" align="center" valign="top">
+      <img src="docs/logos/ip.svg" width="64" height="64" alt="M2Y IP"><br>
+      <b>M2Y IP</b> <sub>1.25.07.68.0 · 53 KB</sub><br>
+      SIM and Wi-Fi IP addresses and the ADB status on one screen.<br>
+      <br>
+      <a href="https://byd.mehmetmesut.com/indir/M2YIP_1.25.07.68.0.apk"><b>⬇ APK</b></a> · Source: coming soon
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="top">
       <img src="docs/logos/browser.png" width="128" height="128" alt="M2Y Browser"><br>
       <b>M2Y Browser</b> <sub>coming soon</sub><br>
       De-Googled Chromium with built-in ad blocking.<br>
@@ -88,7 +97,7 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 | No Google services | No Google Play or GMS dependency anywhere; M2Y Tube works without signing in, M2Y Board works fully offline. |
 | 1920×1080 landscape touch, 240 dpi | Large touch targets, landscape-first layouts, tap and swipe gestures; M2Y Browser keeps only 240 dpi resources. |
 | Hardware video decoder | M2Y Tube is capped at 1080p60 and defaults to hardware VP9 at 720p30 (AV1 off); M2Y TV uses the hardware decoder with a single player. |
-| `heapgrowthlimit` of 256 MB per app | Small memory footprints: Music mode drops the video, M2Y TV runs one player, APKs range from 128 KB to 27.3 MB. |
+| `heapgrowthlimit` of 256 MB per app | Small memory footprints: Music mode drops the video, M2Y TV runs one player, APKs range from 53 KB to 27.3 MB. |
 | Infinity sound system | M2Y EQ is tuned to the engine's real frequency bins and steps aside during phone calls. |
 | Stock installer blocks third-party APKs ("driving safety") | Installation over ADB, or the one-click Windows installer. |
 | BYD's vehicle API is signature-protected | M2Y BYD shows only the data that is readable, read-only. State of charge and tyre data are not shown. |
@@ -104,6 +113,8 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 **M2Y TV** (1.25.07.68.0, 1.7 MB) is a light Turkish, ad-free IPTV player. It reads M3U/M3U8 lists and Xtream Codes logins and offers live TV, films, series, categories, favourites, search and EPG. It uses the hardware video decoder with a single player, and its only permission is internet.
 
 **M2Y BYD** (1.0.0, 223 KB) shows the car's data as pictures instead of rows of numbers: maintenance rings, faults and DiCare, the car's own energy curve in kWh, litres and the combined consumption per 100 km (combined = electricity + petrol × 9.01 kWh/L × 45 % engine efficiency), an optional trip log with totals, and real SEAL U images for tilt and lights. It is read-only and has no internet permission. State of charge and tyre data are not shown because BYD's vehicle API is signature-protected. The source will be published after in-car testing.
+
+**M2Y IP** (1.25.07.68.0, 53 KB) shows the car's network addresses and the ADB status on one screen: the local and the internet-facing IP for SIM (mobile data) and Wi-Fi, whether ADB and the adbd service are on, the network ADB port, and the ready-to-type `adb connect` address for each network, local and remote. It makes finding the address easy when you update the apps. It works only while its screen is open, with no background service, and asks only byd.mehmetmesut.com for the public IP. Plain Kotlin with no dependencies; the interface is in Turkish. The source will be published later.
 
 **M2Y Browser** (coming soon) is a de-Googled Chromium with the Cromite privacy patches. Ad blocking is built into the engine, Turkish filters are on at first start, and only Turkish and English plus 240 dpi resources are kept, so the APK stays small. The build is in progress: [Actions](https://github.com/mehmetmesut/byd-m2y-browser/actions).
 
@@ -124,6 +135,7 @@ adb install -r M2YEQ_1.25.07.68.3.apk
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
+adb install -r M2YIP_1.25.07.68.0.apk
 adb disconnect
 ```
 
@@ -137,7 +149,7 @@ Designed and tested on the BYD SEAL U DM-i (DiLink 3.0). Other BYD models with a
 
 ### Privacy
 
-There is no advertising code, no analytics and no tracking in any M2Y app, and no personal data is collected. M2Y Board and M2Y BYD declare no internet permission. M2Y TV needs the internet only to reach the playlist you provide. M2Y Tube talks to YouTube, and signing in is optional. The source code of each app (except M2Y BYD for now) is public, so you can check all of this yourself.
+There is no advertising code, no analytics and no tracking in any M2Y app, and no personal data is collected. M2Y Board and M2Y BYD declare no internet permission. M2Y TV needs the internet only to reach the playlist you provide. M2Y IP asks only byd.mehmetmesut.com for your public IP address. M2Y Tube talks to YouTube, and signing in is optional. The source code of each app (except M2Y BYD and M2Y IP for now) is public, so you can check all of this yourself.
 
 ### FAQ
 
@@ -179,7 +191,7 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 | Google hizmeti yok | Hiçbir yerde Google Play ya da GMS bağımlılığı yok; M2Y Tube oturum açmadan çalışır, M2Y Board tamamen çevrim dışıdır. |
 | 1920×1080 yatay dokunmatik, 240 dpi | Büyük dokunma alanları, yatay öncelikli düzenler, dokunma ve kaydırma hareketleri; M2Y Browser yalnız 240 dpi kaynaklarını tutar. |
 | Donanım video çözücü | M2Y Tube en fazla 1080p60 ile sınırlıdır, varsayılanı donanım VP9 ile 720p30'dur (AV1 kapalı); M2Y TV donanım çözücüyü tek oynatıcıyla kullanır. |
-| Uygulama başına 256 MB `heapgrowthlimit` | Küçük bellek ayak izi: Müzik modu görüntüyü kapatır, M2Y TV tek oynatıcı çalıştırır, APK'ler 128 KB ile 27,3 MB arasındadır. |
+| Uygulama başına 256 MB `heapgrowthlimit` | Küçük bellek ayak izi: Müzik modu görüntüyü kapatır, M2Y TV tek oynatıcı çalıştırır, APK'ler 53 KB ile 27,3 MB arasındadır. |
 | Infinity ses sistemi | M2Y EQ motorun gerçek frekans kutularına göre ayarlıdır ve telefon görüşmesinde devreden çıkar. |
 | Stok yükleyici üçüncü taraf APK'leri engeller ("sürüş güvenliği") | ADB ile kurulum ya da tek tıkla Windows kurucusu. |
 | BYD'nin araç API'si imza korumalıdır | M2Y BYD yalnız okunabilen veriyi, salt okunur olarak gösterir. Şarj durumu (SoC) ve lastik verisi gösterilmez. |
@@ -195,6 +207,8 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 **M2Y TV** (1.25.07.68.0, 1,7 MB), hafif, Türkçe ve reklamsız bir IPTV oynatıcıdır. M3U/M3U8 listelerini ve Xtream Codes girişini okur; canlı TV, film, dizi, kategoriler, favoriler, arama ve EPG sunar. Donanım video çözücüyü tek oynatıcıyla kullanır; tek izni internettir.
 
 **M2Y BYD** (1.0.0, 223 KB), aracın verilerini sayı satırları yerine resimlerle gösterir: bakım halkaları, arızalar ve DiCare, aracın kendi enerji eğrisi (kWh), litre ve 100 km başına birleşik tüketim (birleşik = elektrik + benzin × 9,01 kWh/L × %45 motor verimi), toplamlarıyla isteğe bağlı yolculuk kaydı ve eğim ile ışıklar için gerçek SEAL U görselleri. Salt okunurdur ve internet izni yoktur. Şarj durumu (SoC) ve lastik verisi, BYD'nin araç API'si imza korumalı olduğu için gösterilmez. Kaynak kodu, araç içi testlerden sonra yayımlanacaktır.
+
+**M2Y IP** (1.25.07.68.0, 53 KB), aracın ağ adreslerini ve ADB durumunu tek ekranda gösterir: SIM (mobil veri) ve Wi-Fi için yerel IP ve internete çıkan IP, ADB'nin ve adbd hizmetinin açık olup olmadığı, ağ üzerinden ADB portu ve her ağ için yerel ve uzaktan, yazılmaya hazır `adb connect` adresi. Uygulamaları güncellerken adresi bulmayı kolaylaştırır. Yalnız ekranı açıkken çalışır, arka plan hizmeti yoktur; çıkış IP'sini yalnız byd.mehmetmesut.com'a sorar. Bağımlılıksız, saf Kotlin ile yazıldı. Kaynak kodu daha sonra yayımlanacaktır.
 
 **M2Y Browser** (yakında), Cromite gizlilik yamalarıyla Google'sızlaştırılmış bir Chromium'dur. Reklam engelleme motora gömülüdür, Türkçe filtreler ilk açılışta etkindir; yalnız Türkçe ve İngilizce ile 240 dpi kaynakları tutulduğu için APK küçük kalır. Derleme sürüyor: [Actions](https://github.com/mehmetmesut/byd-m2y-browser/actions).
 
@@ -215,6 +229,7 @@ adb install -r M2YEQ_1.25.07.68.3.apk
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
+adb install -r M2YIP_1.25.07.68.0.apk
 adb disconnect
 ```
 
@@ -228,7 +243,7 @@ BYD SEAL U DM-i (DiLink 3.0) üzerinde tasarlandı ve denendi. Android 10 ve üz
 
 ### Gizlilik
 
-Hiçbir M2Y uygulamasında reklam kodu, analiz ya da izleme yoktur; kişisel veri toplanmaz. M2Y Board ve M2Y BYD internet izni bildirmez. M2Y TV interneti yalnız sizin verdiğiniz oynatma listesine ulaşmak için kullanır. M2Y Tube YouTube ile iletişim kurar ve oturum açmak isteğe bağlıdır. Her uygulamanın kaynak kodu (şimdilik M2Y BYD hariç) herkese açıktır; bunların hepsini kendiniz denetleyebilirsiniz.
+Hiçbir M2Y uygulamasında reklam kodu, analiz ya da izleme yoktur; kişisel veri toplanmaz. M2Y Board ve M2Y BYD internet izni bildirmez. M2Y TV interneti yalnız sizin verdiğiniz oynatma listesine ulaşmak için kullanır. M2Y IP, çıkış IP adresinizi yalnız byd.mehmetmesut.com'a sorar. M2Y Tube YouTube ile iletişim kurar ve oturum açmak isteğe bağlıdır. Her uygulamanın kaynak kodu (şimdilik M2Y BYD ve M2Y IP hariç) herkese açıktır; bunların hepsini kendiniz denetleyebilirsiniz.
 
 ### Sık sorulan sorular
 
@@ -270,7 +285,7 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 | Нет сервисов Google | Нигде нет зависимости от Google Play или GMS; M2Y Tube работает без входа в аккаунт, M2Y Board полностью автономна. |
 | Горизонтальный сенсорный экран 1920×1080, 240 dpi | Крупные области нажатия, горизонтальные макеты, жесты касания и смахивания; M2Y Browser хранит только ресурсы 240 dpi. |
 | Аппаратный видеодекодер | M2Y Tube ограничен 1080p60, по умолчанию использует аппаратный VP9 в 720p30 (AV1 выключен); M2Y TV работает с аппаратным декодером через один плеер. |
-| `heapgrowthlimit` 256 МБ на приложение | Малый объём памяти: режим «Музыка» отключает картинку, M2Y TV запускает один плеер, APK занимают от 128 КБ до 27,3 МБ. |
+| `heapgrowthlimit` 256 МБ на приложение | Малый объём памяти: режим «Музыка» отключает картинку, M2Y TV запускает один плеер, APK занимают от 53 КБ до 27,3 МБ. |
 | Аудиосистема Infinity | M2Y EQ настроен по реальным частотным ячейкам движка и отключается во время телефонных разговоров. |
 | Штатный установщик блокирует сторонние APK («безопасность движения») | Установка через ADB или одним щелчком установщиком для Windows. |
 | API автомобиля BYD защищён подписью | M2Y BYD показывает только доступные для чтения данные и только для чтения. Уровень заряда (SoC) и данные о шинах не показываются. |
@@ -286,6 +301,8 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 **M2Y TV** (1.25.07.68.0, 1,7 МБ) — лёгкий IPTV-плеер без рекламы с турецким интерфейсом. Читает списки M3U/M3U8 и вход Xtream Codes; есть прямой эфир, фильмы, сериалы, категории, избранное, поиск и EPG. Использует аппаратный видеодекодер через один плеер; единственное разрешение — интернет.
 
 **M2Y BYD** (1.0.0, 223 КБ) показывает данные автомобиля картинками, а не строками цифр: кольца обслуживания, неисправности и DiCare, собственную кривую энергии автомобиля в кВт·ч, литры и комбинированный расход на 100 км (комбинированный = электричество + бензин × 9,01 кВт·ч/л × 45 % КПД двигателя), необязательный журнал поездок с итогами, а также настоящие изображения SEAL U для наклона и света. Приложение работает только на чтение, разрешения на интернет нет. Уровень заряда (SoC) и данные о шинах не показываются, потому что API автомобиля BYD защищён подписью. Исходный код будет опубликован после испытаний в автомобиле.
+
+**M2Y IP** (1.25.07.68.0, 53 КБ) показывает сетевые адреса автомобиля и состояние ADB на одном экране: локальный и внешний IP для SIM (мобильный интернет) и Wi-Fi, включены ли ADB и служба adbd, порт ADB по сети и готовый адрес `adb connect` для каждой сети — локальный и удалённый. Так проще найти адрес при обновлении приложений. Работает только при открытом экране, без фоновой службы; внешний IP запрашивается только у byd.mehmetmesut.com. Kotlin без сторонних зависимостей, интерфейс на турецком языке. Исходный код будет опубликован позже.
 
 **M2Y Browser** (скоро) — Chromium без привязки к Google с патчами конфиденциальности Cromite. Блокировка рекламы встроена в движок, турецкие фильтры включены при первом запуске; сохранены только турецкий и английский языки и ресурсы 240 dpi, поэтому APK остаётся небольшим. Сборка идёт: [Actions](https://github.com/mehmetmesut/byd-m2y-browser/actions).
 
@@ -306,6 +323,7 @@ adb install -r M2YEQ_1.25.07.68.3.apk
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
+adb install -r M2YIP_1.25.07.68.0.apk
 adb disconnect
 ```
 
@@ -319,7 +337,7 @@ adb disconnect
 
 ### Конфиденциальность
 
-Ни в одном приложении M2Y нет рекламного кода, аналитики и слежки, личные данные не собираются. M2Y Board и M2Y BYD не запрашивают разрешение на интернет. M2Y TV использует интернет только для доступа к предоставленному вами плейлисту. M2Y Tube обращается к YouTube, вход в аккаунт необязателен. Исходный код каждого приложения (кроме M2Y BYD, пока) открыт, так что всё это можно проверить самостоятельно.
+Ни в одном приложении M2Y нет рекламного кода, аналитики и слежки, личные данные не собираются. M2Y Board и M2Y BYD не запрашивают разрешение на интернет. M2Y TV использует интернет только для доступа к предоставленному вами плейлисту. M2Y IP запрашивает внешний IP-адрес только у byd.mehmetmesut.com. M2Y Tube обращается к YouTube, вход в аккаунт необязателен. Исходный код каждого приложения (кроме M2Y BYD и M2Y IP, пока) открыт, так что всё это можно проверить самостоятельно.
 
 ### Частые вопросы
 
