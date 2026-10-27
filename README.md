@@ -29,21 +29,14 @@
       <a href="https://github.com/mehmetmesut/byd-m2y-tube/releases/download/1.25.07.68.0/M2YTube_1.25.07.68.0_arm64-v8a.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-tube">Source</a>
     </td>
     <td width="50%" align="center" valign="top">
-      <img src="docs/logos/eq.png" width="64" height="64" alt="M2Y EQ"><br>
-      <b>M2Y EQ</b> <sub>1.25.07.68.3 · 128 KB</sub><br>
-      System-wide equalizer tuned for the Infinity sound system.<br>
-      <img src="docs/screenshots/eq.jpg" width="100%" alt="M2Y EQ equalizer screen"><br>
-      <a href="https://github.com/mehmetmesut/byd-m2y-eq/releases/download/1.25.07.68.3/M2YEQ_1.25.07.68.3.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-eq">Source</a>
+      <img src="docs/logos/board.png" width="64" height="64" alt="M2Y Tools"><br>
+      <b>M2Y Tools</b> <sub>1.25.07.68.2 · 6.2 MB</sub><br>
+      Keyboard and 25-band equalizer in one app (replaces M2Y Board and M2Y EQ).<br>
+      <img src="docs/screenshots/eq.jpg" width="100%" alt="M2Y Tools equalizer screen"><br>
+      <a href="https://github.com/mehmetmesut/byd-m2y-tools/releases/download/1.25.07.68.2/M2YTools_1.25.07.68.2.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-tools">Source</a>
     </td>
   </tr>
   <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/logos/board.png" width="64" height="64" alt="M2Y Board"><br>
-      <b>M2Y Board</b> <sub>1.25.07.68.1 · 4.3 MB</sub><br>
-      Offline Turkish Q keyboard: centred, fixed settings, one-tap personal words.<br>
-      <img src="docs/screenshots/board.jpg" width="100%" alt="M2Y Board keyboard"><br>
-      <a href="https://github.com/mehmetmesut/byd-m2y-board/releases/download/1.25.07.68.1/M2YBoard_1.25.07.68.1.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-board">Source</a>
-    </td>
     <td width="50%" align="center" valign="top">
       <img src="docs/logos/tv.png" width="64" height="64" alt="M2Y TV"><br>
       <b>M2Y TV</b> <sub>1.25.07.68.0 · 1.7 MB</sub><br>
@@ -51,8 +44,6 @@
       <img src="docs/screenshots/tv.jpg" width="100%" alt="M2Y TV channel list"><br>
       <a href="https://github.com/mehmetmesut/byd-m2y-tv/releases/download/1.25.07.68.0/M2YTV_1.25.07.68.0.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-tv">Source</a>
     </td>
-  </tr>
-  <tr>
     <td width="50%" align="center" valign="top">
       <img src="docs/logos/byd.png" width="64" height="64" alt="M2Y BYD"><br>
       <b>M2Y BYD</b> <sub>1.0.0 · 223 KB</sub><br>
@@ -60,6 +51,8 @@
       <img src="docs/screenshots/byd-energy.jpg" width="100%" alt="M2Y BYD energy curve and consumption per 100 km"><br>
       <a href="https://byd.mehmetmesut.com/indir/M2YBYD_1.0.0.apk"><b>⬇ APK</b></a> · Source: after in-car testing
     </td>
+  </tr>
+  <tr>
     <td width="50%" align="center" valign="top">
       <img src="docs/logos/ip.svg" width="64" height="64" alt="M2Y IP"><br>
       <b>M2Y IP</b> <sub>1.25.07.68.0 · 53 KB</sub><br>
@@ -67,10 +60,8 @@
       <br>
       <a href="https://byd.mehmetmesut.com/indir/M2YIP_1.25.07.68.0.apk"><b>⬇ APK</b></a> · Source: coming soon
     </td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" valign="top">
-      <img src="docs/logos/browser.png" width="128" height="128" alt="M2Y Browser"><br>
+    <td width="50%" align="center" valign="top">
+      <img src="docs/logos/browser.png" width="64" height="64" alt="M2Y Browser"><br>
       <b>M2Y Browser</b> <sub>coming soon</sub><br>
       De-Googled Chromium with built-in ad blocking.<br>
       <br>
@@ -95,11 +86,11 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 |---|---|
 | Android 10 (API 29) | Every APK supports API 29; nothing depends on newer system features. |
 | arm64-v8a CPU | Builds target arm64-v8a. |
-| No Google services | No Google Play or GMS dependency anywhere; M2Y Tube works without signing in, M2Y Board works fully offline. |
+| No Google services | No Google Play or GMS dependency anywhere; M2Y Tube works without signing in, M2Y Tools works fully offline. |
 | 1920×1080 landscape touch, 240 dpi | Large touch targets, landscape-first layouts, tap and swipe gestures; M2Y Browser keeps only 240 dpi resources. |
 | Hardware video decoder | M2Y Tube is capped at 1080p60 and defaults to hardware VP9 at 720p30 (AV1 off); M2Y TV uses the hardware decoder with a single player. |
 | `heapgrowthlimit` of 256 MB per app | Small memory footprints: Music mode drops the video, M2Y TV runs one player, APKs range from 53 KB to 27.3 MB. |
-| Infinity sound system | M2Y EQ is tuned to the engine's real frequency bins and steps aside during phone calls. |
+| Infinity sound system | The M2Y Tools equalizer is tuned to the engine's real frequency bins and steps aside during phone calls. |
 | Stock installer blocks third-party APKs ("driving safety") | One-time car preparation over ADB, then install and update in the car with Obtainium; or the one-click Windows installer. |
 | BYD's vehicle API is signature-protected | M2Y BYD shows only the data that is readable, read-only. State of charge and tyre data are not shown. |
 
@@ -107,9 +98,9 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 
 **M2Y Tube** (1.25.07.68.0, 27.3 MB) is a touch-first YouTube client based on SmartTube (MIT). Quality runs from 360p up to 1080p60, defaulting to 720p30 on the hardware VP9 decoder. Tap for controls, swipe left or right for the previous or next video, and the quality and speed buttons sit above the controls. Music mode turns off the picture and shows the video cover, which saves data and CPU. Audio keeps playing in the background. It is ad-free without signing in; signing in with your own account is optional.
 
-**M2Y EQ** (1.25.07.68.3, 128 KB) is a system-wide equalizer written in plain Kotlin with no dependencies. It is a single effect on all system audio with 10 or 25 bands aligned to the real frequency bins of the engine, so every band is audible, with no limiter. Sound strength comes in Clean, Balanced and Strong; preset intensity runs from 0 to 200 %; bass and volume boost go up to +15 dB; and a level-matched comparison makes A/B listening fair. Presets: M2Y, BYD (reference), AI, Pop, Rock, Rap, Classical and Speech, with "save to M2Y" and a factory reset. It removes itself from the signal during phone and CarPlay calls, so no echo appears.
+**M2Y Tools** (1.25.07.68.2, 6.2 MB) puts two apps into one, with one icon and one background process. Its equalizer (formerly M2Y EQ) is a system-wide equalizer written in plain Kotlin with no dependencies. It is a single effect on all system audio with 10 or 25 bands aligned to the real frequency bins of the engine, so every band is audible, with no limiter. Sound strength comes in Clean, Balanced and Strong; preset intensity runs from 0 to 200 %; bass and volume boost go up to +15 dB; and a level-matched comparison makes A/B listening fair. Presets: M2Y, BYD (reference), AI, Pop, Rock, Rap, Classical and Speech, with "save to M2Y" and a factory reset. It removes itself from the signal during phone and CarPlay calls, so no echo appears.
 
-**M2Y Board** (1.25.07.68.1, 4.3 MB) is a lean Turkish Q keyboard based on HeliBoard (GPL-3.0). It sits centred in the middle 55 % of the screen with transparent sides, keeps the number row on, offers symbols, number pad and emoji as three tabs behind one `?123` key, adds your own words (name, e-mail) to the personal dictionary with one tap and suggests e-mail domains after `@`. Settings are fixed; learning, autocorrect and the spell checker are removed. It has no internet permission, collects nothing and never backs up what you type.
+Its keyboard (formerly M2Y Board) is a lean Turkish Q keyboard based on HeliBoard (GPL-3.0). It sits centred in the middle 55 % of the screen with transparent sides, keeps the number row on, offers symbols, number pad and emoji as three tabs behind one `?123` key, adds your own words (name, e-mail) to the personal dictionary with one tap and suggests e-mail domains after `@`. Settings are fixed; learning, autocorrect and the spell checker are removed. It has no internet permission, collects nothing and never backs up what you type.
 
 **M2Y TV** (1.25.07.68.0, 1.7 MB) is a light Turkish, ad-free IPTV player. It reads M3U/M3U8 lists and Xtream Codes logins and offers live TV, films, series, categories, favourites, search and EPG. It uses the hardware video decoder with a single player, and its only permission is internet.
 
@@ -136,10 +127,9 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 ```
 adb connect <car-ip>:5555
 adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
-adb install -r M2YBoard_1.25.07.68.1.apk
-adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
-adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
-adb install -r M2YEQ_1.25.07.68.3.apk
+adb install -r M2YTools_1.25.07.68.2.apk
+adb shell ime enable com.m2y.tools/helium314.keyboard.latin.LatinIME
+adb shell ime set com.m2y.tools/helium314.keyboard.latin.LatinIME
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
@@ -147,7 +137,7 @@ adb install -r M2YIP_1.25.07.68.0.apk
 adb disconnect
 ```
 
-3. **Auto-start:** open M2Y EQ once (and M2Y BYD, if you use the trip log) and allow them in the BYD **Auto-start** list so they keep working after a restart. M2Y BYD uses the location permission only for GPS speed, heading, altitude and trip distance; the position itself is never shown, stored or sent.
+3. **Auto-start:** open M2Y Tools once (and M2Y BYD, if you use the trip log) and allow them in the BYD **Auto-start** list so they keep working after a restart. M2Y BYD uses the location permission only for GPS speed, heading, altitude and trip distance; the position itself is never shown, stored or sent.
 4. **Launcher:** if a new icon does not show up, restart the SealNav/stock launcher (switching the car off and on also works).
 
 ### Compatibility
@@ -156,7 +146,7 @@ Designed and tested on the BYD SEAL U DM-i (DiLink 3.0). Other BYD models with a
 
 ### Privacy
 
-There is no advertising code, no analytics and no tracking in any M2Y app, and no personal data is collected. M2Y Board and M2Y BYD declare no internet permission. M2Y TV needs the internet only to reach the playlist you provide. M2Y IP asks only byd.mehmetmesut.com for your public IP address. M2Y Tube talks to YouTube, and signing in is optional. The source code of each app (except M2Y BYD and M2Y IP for now) is public, so you can check all of this yourself.
+There is no advertising code, no analytics and no tracking in any M2Y app, and no personal data is collected. M2Y Tools and M2Y BYD declare no internet permission. M2Y TV needs the internet only to reach the playlist you provide. M2Y IP asks only byd.mehmetmesut.com for your public IP address. M2Y Tube talks to YouTube, and signing in is optional. The source code of each app (except M2Y BYD and M2Y IP for now) is public, so you can check all of this yourself.
 
 ### FAQ
 
@@ -197,11 +187,11 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 |---|---|
 | Android 10 (API 29) | Her APK API 29'u destekler; daha yeni sistem özelliklerine bağımlılık yoktur. |
 | arm64-v8a işlemci | Derlemeler arm64-v8a'yı hedefler. |
-| Google hizmeti yok | Hiçbir yerde Google Play ya da GMS bağımlılığı yok; M2Y Tube oturum açmadan çalışır, M2Y Board tamamen çevrim dışıdır. |
+| Google hizmeti yok | Hiçbir yerde Google Play ya da GMS bağımlılığı yok; M2Y Tube oturum açmadan çalışır, M2Y Tools tamamen çevrim dışıdır. |
 | 1920×1080 yatay dokunmatik, 240 dpi | Büyük dokunma alanları, yatay öncelikli düzenler, dokunma ve kaydırma hareketleri; M2Y Browser yalnız 240 dpi kaynaklarını tutar. |
 | Donanım video çözücü | M2Y Tube en fazla 1080p60 ile sınırlıdır, varsayılanı donanım VP9 ile 720p30'dur (AV1 kapalı); M2Y TV donanım çözücüyü tek oynatıcıyla kullanır. |
 | Uygulama başına 256 MB `heapgrowthlimit` | Küçük bellek ayak izi: Müzik modu görüntüyü kapatır, M2Y TV tek oynatıcı çalıştırır, APK'ler 53 KB ile 27,3 MB arasındadır. |
-| Infinity ses sistemi | M2Y EQ motorun gerçek frekans kutularına göre ayarlıdır ve telefon görüşmesinde devreden çıkar. |
+| Infinity ses sistemi | M2Y Tools ekolayzırı motorun gerçek frekans kutularına göre ayarlıdır ve telefon görüşmesinde devreden çıkar. |
 | Stok yükleyici üçüncü taraf APK'leri engeller ("sürüş güvenliği") | Bir kez ADB ile araç hazırlığı, sonra araçta Obtainium ile kurulum ve güncelleme; ya da tek tıkla Windows kurucusu. |
 | BYD'nin araç API'si imza korumalıdır | M2Y BYD yalnız okunabilen veriyi, salt okunur olarak gösterir. Şarj durumu (SoC) ve lastik verisi gösterilmez. |
 
@@ -209,9 +199,9 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 
 **M2Y Tube** (1.25.07.68.0, 27,3 MB), SmartTube (MIT) tabanlı, dokunmatiği öne alan bir YouTube istemcisidir. Kalite 360p'den 1080p60'a kadar çıkar; varsayılan, donanım VP9 çözücüyle 720p30'dur. Denetimler için dokunun, önceki ya da sonraki video için sola veya sağa kaydırın; kalite ve hız düğmeleri denetimlerin üstündedir. Müzik modu görüntüyü kapatıp video kapağını gösterir, böylece veri ve işlemci tasarrufu sağlar. Ses arka planda çalmaya devam eder. Oturum açmadan reklamsızdır; isterseniz kendi hesabınızla oturum açabilirsiniz.
 
-**M2Y EQ** (1.25.07.68.3, 128 KB), saf Kotlin ile yazılmış, bağımlılıksız, sistem genelinde çalışan bir ekolayzırdır. Tüm sistem sesine uygulanan tek bir efekttir; motorun gerçek frekans kutularına hizalı 10 ya da 25 bandı vardır (her bant duyulur); sınırlayıcı yoktur. Ses gücü Temiz, Dengeli ve Güçlü olarak seçilir; ön ayar yoğunluğu %0–200 arasındadır; bas ve ses yükseltme +15 dB'ye çıkar; eşit ses düzeyli karşılaştırma A/B dinlemeyi adil kılar. Ön ayarlar: M2Y, BYD (referans), AI, Pop, Rock, Rap, Klasik ve Konuşma; "M2Y'ye kaydet" ve fabrika ayarına dönüş de var. Telefon ve CarPlay görüşmesinde kendini sinyal yolundan çıkarır, böylece eko oluşmaz.
+**M2Y Tools** (1.25.07.68.2, 6,2 MB) iki uygulamayı tek simge ve tek arka plan süreciyle birleştirir. Ekolayzırı (eski M2Y EQ) saf Kotlin ile yazılmış, bağımlılıksız, sistem genelinde çalışan bir ekolayzırdır. Tüm sistem sesine uygulanan tek bir efekttir; motorun gerçek frekans kutularına hizalı 10 ya da 25 bandı vardır (her bant duyulur); sınırlayıcı yoktur. Ses gücü Temiz, Dengeli ve Güçlü olarak seçilir; ön ayar yoğunluğu %0–200 arasındadır; bas ve ses yükseltme +15 dB'ye çıkar; eşit ses düzeyli karşılaştırma A/B dinlemeyi adil kılar. Ön ayarlar: M2Y, BYD (referans), AI, Pop, Rock, Rap, Klasik ve Konuşma; "M2Y'ye kaydet" ve fabrika ayarına dönüş de var. Telefon ve CarPlay görüşmesinde kendini sinyal yolundan çıkarır, böylece eko oluşmaz.
 
-**M2Y Board** (1.25.07.68.1, 4,3 MB), HeliBoard (GPL-3.0) tabanlı sade bir Türkçe Q klavyedir. Ekranın ortadaki %55'inde durur, yanları şeffaftır; rakam satırı açıktır, semboller, sayı tuş takımı ve emoji tek `?123` tuşunun arkasında üç sekmededir, adınız ve e-postanız gibi kelimeleri tek dokunuşla kişisel sözlüğe ekler, `@` sonrasında e-posta alan adı önerir. Ayarlar sabittir; öğrenme, otomatik düzeltme ve yazım denetimi kaldırılmıştır. İnternet izni yoktur, hiçbir şey toplamaz ve yazdıklarınızı asla yedeklemez.
+Klavyesi (eski M2Y Board), HeliBoard (GPL-3.0) tabanlı sade bir Türkçe Q klavyedir. Ekranın ortadaki %55'inde durur, yanları şeffaftır; rakam satırı açıktır, semboller, sayı tuş takımı ve emoji tek `?123` tuşunun arkasında üç sekmededir, adınız ve e-postanız gibi kelimeleri tek dokunuşla kişisel sözlüğe ekler, `@` sonrasında e-posta alan adı önerir. Ayarlar sabittir; öğrenme, otomatik düzeltme ve yazım denetimi kaldırılmıştır. İnternet izni yoktur, hiçbir şey toplamaz ve yazdıklarınızı asla yedeklemez.
 
 **M2Y TV** (1.25.07.68.0, 1,7 MB), hafif, Türkçe ve reklamsız bir IPTV oynatıcıdır. M3U/M3U8 listelerini ve Xtream Codes girişini okur; canlı TV, film, dizi, kategoriler, favoriler, arama ve EPG sunar. Donanım video çözücüyü tek oynatıcıyla kullanır; tek izni internettir.
 
@@ -238,10 +228,9 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 ```
 adb connect <car-ip>:5555
 adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
-adb install -r M2YBoard_1.25.07.68.1.apk
-adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
-adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
-adb install -r M2YEQ_1.25.07.68.3.apk
+adb install -r M2YTools_1.25.07.68.2.apk
+adb shell ime enable com.m2y.tools/helium314.keyboard.latin.LatinIME
+adb shell ime set com.m2y.tools/helium314.keyboard.latin.LatinIME
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
@@ -249,7 +238,7 @@ adb install -r M2YIP_1.25.07.68.0.apk
 adb disconnect
 ```
 
-3. **Otomatik başlatma:** M2Y EQ'yu (yolculuk kaydını kullanıyorsanız M2Y BYD'yi de) bir kez açın ve BYD **Otomatik Başlatma** listesinde izin verin; böylece yeniden başlatmadan sonra da çalışırlar. M2Y BYD konum iznini yalnız GPS hızı, yönü, rakımı ve yolculuk mesafesi için kullanır; konumun kendisi gösterilmez, kaydedilmez, gönderilmez.
+3. **Otomatik başlatma:** M2Y Tools'u (yolculuk kaydını kullanıyorsanız M2Y BYD'yi de) bir kez açın ve BYD **Otomatik Başlatma** listesinde izin verin; böylece yeniden başlatmadan sonra da çalışırlar. M2Y BYD konum iznini yalnız GPS hızı, yönü, rakımı ve yolculuk mesafesi için kullanır; konumun kendisi gösterilmez, kaydedilmez, gönderilmez.
 4. **Başlatıcı:** yeni simge görünmezse SealNav/stok başlatıcıyı yeniden başlatın (aracı kapatıp açmak da yeter).
 
 ### Uyumluluk
@@ -258,7 +247,7 @@ BYD SEAL U DM-i (DiLink 3.0) üzerinde tasarlandı ve denendi. Android 10 ve üz
 
 ### Gizlilik
 
-Hiçbir M2Y uygulamasında reklam kodu, analiz ya da izleme yoktur; kişisel veri toplanmaz. M2Y Board ve M2Y BYD internet izni bildirmez. M2Y TV interneti yalnız sizin verdiğiniz oynatma listesine ulaşmak için kullanır. M2Y IP, çıkış IP adresinizi yalnız byd.mehmetmesut.com'a sorar. M2Y Tube YouTube ile iletişim kurar ve oturum açmak isteğe bağlıdır. Her uygulamanın kaynak kodu (şimdilik M2Y BYD ve M2Y IP hariç) herkese açıktır; bunların hepsini kendiniz denetleyebilirsiniz.
+Hiçbir M2Y uygulamasında reklam kodu, analiz ya da izleme yoktur; kişisel veri toplanmaz. M2Y Tools ve M2Y BYD internet izni bildirmez. M2Y TV interneti yalnız sizin verdiğiniz oynatma listesine ulaşmak için kullanır. M2Y IP, çıkış IP adresinizi yalnız byd.mehmetmesut.com'a sorar. M2Y Tube YouTube ile iletişim kurar ve oturum açmak isteğe bağlıdır. Her uygulamanın kaynak kodu (şimdilik M2Y BYD ve M2Y IP hariç) herkese açıktır; bunların hepsini kendiniz denetleyebilirsiniz.
 
 ### Sık sorulan sorular
 
@@ -299,11 +288,11 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 |---|---|
 | Android 10 (API 29) | Каждый APK поддерживает API 29; зависимости от более новых функций системы нет. |
 | Процессор arm64-v8a | Сборки ориентированы на arm64-v8a. |
-| Нет сервисов Google | Нигде нет зависимости от Google Play или GMS; M2Y Tube работает без входа в аккаунт, M2Y Board полностью автономна. |
+| Нет сервисов Google | Нигде нет зависимости от Google Play или GMS; M2Y Tube работает без входа в аккаунт, M2Y Tools полностью автономно. |
 | Горизонтальный сенсорный экран 1920×1080, 240 dpi | Крупные области нажатия, горизонтальные макеты, жесты касания и смахивания; M2Y Browser хранит только ресурсы 240 dpi. |
 | Аппаратный видеодекодер | M2Y Tube ограничен 1080p60, по умолчанию использует аппаратный VP9 в 720p30 (AV1 выключен); M2Y TV работает с аппаратным декодером через один плеер. |
 | `heapgrowthlimit` 256 МБ на приложение | Малый объём памяти: режим «Музыка» отключает картинку, M2Y TV запускает один плеер, APK занимают от 53 КБ до 27,3 МБ. |
-| Аудиосистема Infinity | M2Y EQ настроен по реальным частотным ячейкам движка и отключается во время телефонных разговоров. |
+| Аудиосистема Infinity | Эквалайзер M2Y Tools настроен по реальным частотным ячейкам движка и отключается во время телефонных разговоров. |
 | Штатный установщик блокирует сторонние APK («безопасность движения») | Однократная подготовка автомобиля через ADB, затем установка и обновление прямо в машине через Obtainium; или установщик для Windows в один щелчок. |
 | API автомобиля BYD защищён подписью | M2Y BYD показывает только доступные для чтения данные и только для чтения. Уровень заряда (SoC) и данные о шинах не показываются. |
 
@@ -311,9 +300,9 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 
 **M2Y Tube** (1.25.07.68.0, 27,3 МБ) — клиент YouTube с упором на сенсорное управление, основан на SmartTube (MIT). Качество от 360p до 1080p60, по умолчанию 720p30 на аппаратном декодере VP9. Нажмите, чтобы вызвать элементы управления; смахните влево или вправо для перехода к предыдущему или следующему видео; кнопки качества и скорости расположены над элементами управления. Режим «Музыка» отключает картинку и показывает обложку видео, что экономит трафик и процессор. Звук продолжает играть в фоне. Без входа в аккаунт реклама не показывается; при желании можно войти в свой аккаунт.
 
-**M2Y EQ** (1.25.07.68.3, 128 КБ) — системный эквалайзер на чистом Kotlin без зависимостей. Это один эффект на весь системный звук: 10 или 25 полос, выровненных по реальным частотным ячейкам движка (каждая полоса слышна), без ограничителя. Громкость звучания выбирается из режимов «Чистый», «Сбалансированный» и «Мощный»; интенсивность пресета — от 0 до 200 %; усиление баса и громкости — до +15 дБ; сравнение с выравниванием уровня делает A/B-прослушивание честным. Пресеты: M2Y, BYD (эталон), AI, Pop, Rock, Rap, «Классика» и «Речь», есть «Сохранить в M2Y» и сброс к заводским настройкам. Во время телефонных разговоров и звонков через CarPlay эквалайзер выходит из тракта, поэтому эхо не возникает.
+**M2Y Tools** (1.25.07.68.2, 6,2 МБ) объединяет два приложения с одним значком и одним фоновым процессом. Его эквалайзер (бывший M2Y EQ) — системный эквалайзер на чистом Kotlin без зависимостей. Это один эффект на весь системный звук: 10 или 25 полос, выровненных по реальным частотным ячейкам движка (каждая полоса слышна), без ограничителя. Громкость звучания выбирается из режимов «Чистый», «Сбалансированный» и «Мощный»; интенсивность пресета — от 0 до 200 %; усиление баса и громкости — до +15 дБ; сравнение с выравниванием уровня делает A/B-прослушивание честным. Пресеты: M2Y, BYD (эталон), AI, Pop, Rock, Rap, «Классика» и «Речь», есть «Сохранить в M2Y» и сброс к заводским настройкам. Во время телефонных разговоров и звонков через CarPlay эквалайзер выходит из тракта, поэтому эхо не возникает.
 
-**M2Y Board** (1.25.07.68.1, 4,3 МБ) — лёгкая турецкая клавиатура Q на основе HeliBoard (GPL-3.0). Она занимает средние 55 % экрана с прозрачными краями, цифровой ряд включён, символы, цифровая панель и эмодзи — три вкладки за одной клавишей `?123`, свои слова (имя, e-mail) добавляются в личный словарь одним касанием, после `@` предлагаются домены почты. Настройки зафиксированы; обучение, автокоррекция и проверка орфографии удалены. Разрешения на интернет нет, ничего не собирается, набранный текст никогда не копируется.
+Его клавиатура (бывшая M2Y Board) — лёгкая турецкая клавиатура Q на основе HeliBoard (GPL-3.0). Она занимает средние 55 % экрана с прозрачными краями, цифровой ряд включён, символы, цифровая панель и эмодзи — три вкладки за одной клавишей `?123`, свои слова (имя, e-mail) добавляются в личный словарь одним касанием, после `@` предлагаются домены почты. Настройки зафиксированы; обучение, автокоррекция и проверка орфографии удалены. Разрешения на интернет нет, ничего не собирается, набранный текст никогда не копируется.
 
 **M2Y TV** (1.25.07.68.0, 1,7 МБ) — лёгкий IPTV-плеер без рекламы с турецким интерфейсом. Читает списки M3U/M3U8 и вход Xtream Codes; есть прямой эфир, фильмы, сериалы, категории, избранное, поиск и EPG. Использует аппаратный видеодекодер через один плеер; единственное разрешение — интернет.
 
@@ -340,10 +329,9 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 ```
 adb connect <car-ip>:5555
 adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
-adb install -r M2YBoard_1.25.07.68.1.apk
-adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
-adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
-adb install -r M2YEQ_1.25.07.68.3.apk
+adb install -r M2YTools_1.25.07.68.2.apk
+adb shell ime enable com.m2y.tools/helium314.keyboard.latin.LatinIME
+adb shell ime set com.m2y.tools/helium314.keyboard.latin.LatinIME
 adb install -r M2YTV_1.25.07.68.0.apk
 adb install -r M2YBYD_1.0.0.apk
 adb shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION
@@ -351,7 +339,7 @@ adb install -r M2YIP_1.25.07.68.0.apk
 adb disconnect
 ```
 
-3. **Автозапуск:** откройте M2Y EQ один раз (и M2Y BYD, если вы используете журнал поездок) и разрешите их в списке **автозапуска** BYD, чтобы они работали и после перезагрузки. M2Y BYD использует разрешение на геолокацию только для скорости по GPS, курса, высоты и расстояния поездки; сами координаты не показываются, не сохраняются и не передаются.
+3. **Автозапуск:** откройте M2Y Tools один раз (и M2Y BYD, если вы используете журнал поездок) и разрешите их в списке **автозапуска** BYD, чтобы они работали и после перезагрузки. M2Y BYD использует разрешение на геолокацию только для скорости по GPS, курса, высоты и расстояния поездки; сами координаты не показываются, не сохраняются и не передаются.
 4. **Лаунчер:** если новый значок не появился, перезапустите SealNav/штатный лаунчер (достаточно выключить и снова включить автомобиль).
 
 ### Совместимость
@@ -360,7 +348,7 @@ adb disconnect
 
 ### Конфиденциальность
 
-Ни в одном приложении M2Y нет рекламного кода, аналитики и слежки, личные данные не собираются. M2Y Board и M2Y BYD не запрашивают разрешение на интернет. M2Y TV использует интернет только для доступа к предоставленному вами плейлисту. M2Y IP запрашивает внешний IP-адрес только у byd.mehmetmesut.com. M2Y Tube обращается к YouTube, вход в аккаунт необязателен. Исходный код каждого приложения (кроме M2Y BYD и M2Y IP, пока) открыт, так что всё это можно проверить самостоятельно.
+Ни в одном приложении M2Y нет рекламного кода, аналитики и слежки, личные данные не собираются. M2Y Tools и M2Y BYD не запрашивают разрешение на интернет. M2Y TV использует интернет только для доступа к предоставленному вами плейлисту. M2Y IP запрашивает внешний IP-адрес только у byd.mehmetmesut.com. M2Y Tube обращается к YouTube, вход в аккаунт необязателен. Исходный код каждого приложения (кроме M2Y BYD и M2Y IP, пока) открыт, так что всё это можно проверить самостоятельно.
 
 ### Частые вопросы
 
@@ -387,4 +375,4 @@ adb disconnect
 </details>
 
 <hr>
-<p align="center"><sub>M2Y Tube: MIT (based on SmartTube) · M2Y Board: GPL-3.0 (based on HeliBoard; OpenBoard/AOSP Apache-2.0, icons CC BY-SA 4.0) · M2Y EQ: GPL-3.0 · M2Y TV: GPL-3.0 · M2Y Browser: Chromium BSD + Cromite GPL-3.0 · this repository (installer and docs): GPL-3.0<br>Not affiliated with BYD, YouTube, Google or Infinity; trademarks belong to their owners. · © 2026 Yeşil Dönüşüm Mühendisi - M2Y</sub></p>
+<p align="center"><sub>M2Y Tube: MIT (based on SmartTube) · M2Y Tools: GPL-3.0 (keyboard based on HeliBoard; OpenBoard/AOSP Apache-2.0, icons CC BY-SA 4.0) · M2Y TV: GPL-3.0 · M2Y Browser: Chromium BSD + Cromite GPL-3.0 · this repository (installer and docs): GPL-3.0<br>Not affiliated with BYD, YouTube, Google or Infinity; trademarks belong to their owners. · © 2026 Yeşil Dönüşüm Mühendisi - M2Y</sub></p>
