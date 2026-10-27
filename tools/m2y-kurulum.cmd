@@ -109,12 +109,13 @@ $chosen = if ($pick.Trim() -eq '0') { @() } elseif ($pick.Trim()) {
 foreach ($f in $chosen) {
     $dest = Get-Verified ($base + $f) $f $sums[$f]
     if (-not (Install-Apk $dest $f)) { continue }
-    if ($f -like 'M2YBoard*') {
-        & $adb -s $ip shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME | Out-Null
-        & $adb -s $ip shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME | Write-Host
-    }
-    if ($f -like 'M2YEQ*') {
-        Write-Host '  M2Y EQ: uygulamayi bir kez acin ve BYD Otomatik Baslatma listesinde izin verin.' -ForegroundColor Yellow
+    if ($f -like 'M2YTools*') {
+        # M2Y Tools replaces M2Y Board and M2Y EQ
+        & $adb -s $ip uninstall com.m2y.board 2>$null | Out-Null
+        & $adb -s $ip uninstall com.m2y.eq 2>$null | Out-Null
+        & $adb -s $ip shell ime enable com.m2y.tools/helium314.keyboard.latin.LatinIME | Out-Null
+        & $adb -s $ip shell ime set com.m2y.tools/helium314.keyboard.latin.LatinIME | Write-Host
+        Write-Host '  M2Y Tools: uygulamayi bir kez acin ve BYD Otomatik Baslatma listesinde izin verin (eski M2Y Board ve M2Y EQ kaldirildi).' -ForegroundColor Yellow
     }
     if ($f -like 'M2YBYD*') {
         & $adb -s $ip shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION | Out-Null
