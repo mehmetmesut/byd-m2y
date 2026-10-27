@@ -39,10 +39,10 @@
   <tr>
     <td width="50%" align="center" valign="top">
       <img src="docs/logos/board.png" width="64" height="64" alt="M2Y Board"><br>
-      <b>M2Y Board</b> <sub>1.25.07.68.0 · 4.5 MB</sub><br>
-      Offline Turkish Q keyboard with a number row.<br>
+      <b>M2Y Board</b> <sub>1.25.07.68.1 · 4.3 MB</sub><br>
+      Offline Turkish Q keyboard: centred, fixed settings, one-tap personal words.<br>
       <img src="docs/screenshots/board.jpg" width="100%" alt="M2Y Board keyboard"><br>
-      <a href="https://github.com/mehmetmesut/byd-m2y-board/releases/download/1.25.07.68.0/M2YBoard_1.25.07.68.0.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-board">Source</a>
+      <a href="https://github.com/mehmetmesut/byd-m2y-board/releases/download/1.25.07.68.1/M2YBoard_1.25.07.68.1.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-board">Source</a>
     </td>
     <td width="50%" align="center" valign="top">
       <img src="docs/logos/tv.png" width="64" height="64" alt="M2Y TV"><br>
@@ -109,7 +109,7 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 
 **M2Y EQ** (1.25.07.68.3, 128 KB) is a system-wide equalizer written in plain Kotlin with no dependencies. It is a single effect on all system audio with 10 or 25 bands aligned to the real frequency bins of the engine, so every band is audible, with no limiter. Sound strength comes in Clean, Balanced and Strong; preset intensity runs from 0 to 200 %; bass and volume boost go up to +15 dB; and a level-matched comparison makes A/B listening fair. Presets: M2Y, BYD (reference), AI, Pop, Rock, Rap, Classical and Speech, with "save to M2Y" and a factory reset. It removes itself from the signal during phone and CarPlay calls, so no echo appears.
 
-**M2Y Board** (1.25.07.68.0, 4.5 MB) is a plain Turkish Q keyboard based on HeliBoard (GPL-3.0). Turkish Q is the default whatever the system language is, the number row is on, the clipboard button is always visible and emoji sit on the bottom row. Settings are kept simple. It has no internet permission, collects nothing and never backs up what you type.
+**M2Y Board** (1.25.07.68.1, 4.3 MB) is a lean Turkish Q keyboard based on HeliBoard (GPL-3.0). It sits centred in the middle 55 % of the screen with transparent sides, keeps the number row on, offers symbols, number pad and emoji as three tabs behind one `?123` key, adds your own words (name, e-mail) to the personal dictionary with one tap and suggests e-mail domains after `@`. Settings are fixed; learning, autocorrect and the spell checker are removed. It has no internet permission, collects nothing and never backs up what you type.
 
 **M2Y TV** (1.25.07.68.0, 1.7 MB) is a light Turkish, ad-free IPTV player. It reads M3U/M3U8 lists and Xtream Codes logins and offers live TV, films, series, categories, favourites, search and EPG. It uses the hardware video decoder with a single player, and its only permission is internet.
 
@@ -136,7 +136,7 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 ```
 adb connect <car-ip>:5555
 adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
-adb install -r M2YBoard_1.25.07.68.0.apk
+adb install -r M2YBoard_1.25.07.68.1.apk
 adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
 adb install -r M2YEQ_1.25.07.68.3.apk
@@ -211,7 +211,7 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 
 **M2Y EQ** (1.25.07.68.3, 128 KB), saf Kotlin ile yazılmış, bağımlılıksız, sistem genelinde çalışan bir ekolayzırdır. Tüm sistem sesine uygulanan tek bir efekttir; motorun gerçek frekans kutularına hizalı 10 ya da 25 bandı vardır (her bant duyulur); sınırlayıcı yoktur. Ses gücü Temiz, Dengeli ve Güçlü olarak seçilir; ön ayar yoğunluğu %0–200 arasındadır; bas ve ses yükseltme +15 dB'ye çıkar; eşit ses düzeyli karşılaştırma A/B dinlemeyi adil kılar. Ön ayarlar: M2Y, BYD (referans), AI, Pop, Rock, Rap, Klasik ve Konuşma; "M2Y'ye kaydet" ve fabrika ayarına dönüş de var. Telefon ve CarPlay görüşmesinde kendini sinyal yolundan çıkarır, böylece eko oluşmaz.
 
-**M2Y Board** (1.25.07.68.0, 4,5 MB), HeliBoard (GPL-3.0) tabanlı sade bir Türkçe Q klavyedir. Sistem dili ne olursa olsun Türkçe Q varsayılandır, rakam satırı açıktır, pano düğmesi her zaman görünür, emoji alt satırdadır. Ayarlar sade tutulmuştur. İnternet izni yoktur, hiçbir şey toplamaz ve yazdıklarınızı asla yedeklemez.
+**M2Y Board** (1.25.07.68.1, 4,3 MB), HeliBoard (GPL-3.0) tabanlı sade bir Türkçe Q klavyedir. Ekranın ortadaki %55'inde durur, yanları şeffaftır; rakam satırı açıktır, semboller, sayı tuş takımı ve emoji tek `?123` tuşunun arkasında üç sekmededir, adınız ve e-postanız gibi kelimeleri tek dokunuşla kişisel sözlüğe ekler, `@` sonrasında e-posta alan adı önerir. Ayarlar sabittir; öğrenme, otomatik düzeltme ve yazım denetimi kaldırılmıştır. İnternet izni yoktur, hiçbir şey toplamaz ve yazdıklarınızı asla yedeklemez.
 
 **M2Y TV** (1.25.07.68.0, 1,7 MB), hafif, Türkçe ve reklamsız bir IPTV oynatıcıdır. M3U/M3U8 listelerini ve Xtream Codes girişini okur; canlı TV, film, dizi, kategoriler, favoriler, arama ve EPG sunar. Donanım video çözücüyü tek oynatıcıyla kullanır; tek izni internettir.
 
@@ -238,7 +238,7 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 ```
 adb connect <car-ip>:5555
 adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
-adb install -r M2YBoard_1.25.07.68.0.apk
+adb install -r M2YBoard_1.25.07.68.1.apk
 adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
 adb install -r M2YEQ_1.25.07.68.3.apk
@@ -313,7 +313,7 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 
 **M2Y EQ** (1.25.07.68.3, 128 КБ) — системный эквалайзер на чистом Kotlin без зависимостей. Это один эффект на весь системный звук: 10 или 25 полос, выровненных по реальным частотным ячейкам движка (каждая полоса слышна), без ограничителя. Громкость звучания выбирается из режимов «Чистый», «Сбалансированный» и «Мощный»; интенсивность пресета — от 0 до 200 %; усиление баса и громкости — до +15 дБ; сравнение с выравниванием уровня делает A/B-прослушивание честным. Пресеты: M2Y, BYD (эталон), AI, Pop, Rock, Rap, «Классика» и «Речь», есть «Сохранить в M2Y» и сброс к заводским настройкам. Во время телефонных разговоров и звонков через CarPlay эквалайзер выходит из тракта, поэтому эхо не возникает.
 
-**M2Y Board** (1.25.07.68.0, 4,5 МБ) — простая турецкая клавиатура Q на основе HeliBoard (GPL-3.0). Турецкая раскладка Q используется по умолчанию независимо от языка системы, цифровой ряд включён, кнопка буфера обмена всегда на виду, эмодзи — в нижнем ряду. Настройки намеренно простые. Разрешения на интернет нет, ничего не собирается, набранный текст никогда не копируется.
+**M2Y Board** (1.25.07.68.1, 4,3 МБ) — лёгкая турецкая клавиатура Q на основе HeliBoard (GPL-3.0). Она занимает средние 55 % экрана с прозрачными краями, цифровой ряд включён, символы, цифровая панель и эмодзи — три вкладки за одной клавишей `?123`, свои слова (имя, e-mail) добавляются в личный словарь одним касанием, после `@` предлагаются домены почты. Настройки зафиксированы; обучение, автокоррекция и проверка орфографии удалены. Разрешения на интернет нет, ничего не собирается, набранный текст никогда не копируется.
 
 **M2Y TV** (1.25.07.68.0, 1,7 МБ) — лёгкий IPTV-плеер без рекламы с турецким интерфейсом. Читает списки M3U/M3U8 и вход Xtream Codes; есть прямой эфир, фильмы, сериалы, категории, избранное, поиск и EPG. Использует аппаратный видеодекодер через один плеер; единственное разрешение — интернет.
 
@@ -340,7 +340,7 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 ```
 adb connect <car-ip>:5555
 adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
-adb install -r M2YBoard_1.25.07.68.0.apk
+adb install -r M2YBoard_1.25.07.68.1.apk
 adb shell ime enable com.m2y.board/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.board/helium314.keyboard.latin.LatinIME
 adb install -r M2YEQ_1.25.07.68.3.apk
