@@ -29,7 +29,7 @@
       <a href="https://github.com/mehmetmesut/byd-m2y-tube/releases/download/1.25.07.68.0/M2YTube_1.25.07.68.0_arm64-v8a.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-tube">Source</a>
     </td>
     <td width="50%" align="center" valign="top">
-      <img src="docs/logos/board.png" width="64" height="64" alt="M2Y Tools"><br>
+      <img src="docs/logos/tools.png" width="64" height="64" alt="M2Y Tools"><br>
       <b>M2Y Tools</b> <sub>1.25.07.68.2 · 6.2 MB</sub><br>
       Keyboard and 25-band equalizer in one app (replaces M2Y Board and M2Y EQ).<br>
       <img src="docs/screenshots/eq.jpg" width="100%" alt="M2Y Tools equalizer screen"><br>
