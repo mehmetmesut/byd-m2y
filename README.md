@@ -23,10 +23,10 @@
   <tr>
     <td width="50%" align="center" valign="top">
       <img src="docs/logos/tube.png" width="64" height="64" alt="M2Y Tube"><br>
-      <b>M2Y Tube</b> <sub>1.25.07.68.0 · 27.3 MB</sub><br>
+      <b>M2Y Tube</b> <sub>1.25.07.68.3 · 18.0 MB</sub><br>
       A touch-first YouTube client built for the car screen.<br>
       <img src="docs/screenshots/tube.jpg" width="100%" alt="M2Y Tube home screen"><br>
-      <a href="https://github.com/mehmetmesut/byd-m2y-tube/releases/download/1.25.07.68.0/M2YTube_1.25.07.68.0_arm64-v8a.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-tube">Source</a>
+      <a href="https://github.com/mehmetmesut/byd-m2y-tube/releases/download/1.25.07.68.3/M2YTube_1.25.07.68.3_arm64-v8a.apk"><b>⬇ APK</b></a> · <a href="https://github.com/mehmetmesut/byd-m2y-tube">Source</a>
     </td>
     <td width="50%" align="center" valign="top">
       <img src="docs/logos/tools.png" width="64" height="64" alt="M2Y Tools"><br>
@@ -88,7 +88,7 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 | arm64-v8a CPU | Builds target arm64-v8a. |
 | No Google services | No Google Play or GMS dependency anywhere; M2Y Tube works without signing in, M2Y Tools works fully offline. |
 | 1920×1080 landscape touch, 240 dpi | Large touch targets, landscape-first layouts, tap and swipe gestures; M2Y Browser keeps only 240 dpi resources. |
-| Hardware video decoder | M2Y Tube is capped at 1080p60 and defaults to hardware VP9 at 720p30 (AV1 off); M2Y TV uses the hardware decoder with a single player. |
+| Hardware video decoder | M2Y Tube is capped at 1080p60 and defaults to hardware VP9 at 480p30 (AV1 off); M2Y TV uses the hardware decoder with a single player. |
 | `heapgrowthlimit` of 256 MB per app | Small memory footprints: Music mode drops the video, M2Y TV runs one player, APKs range from 53 KB to 27.3 MB. |
 | Infinity sound system | The M2Y Tools equalizer is tuned to the engine's real frequency bins and steps aside during phone calls. |
 | Stock installer blocks third-party APKs ("driving safety") | One-time car preparation over ADB, then install and update in the car with Obtainium; or the one-click Windows installer. |
@@ -96,7 +96,7 @@ Every decision starts from a measured fact about the head unit (BYD DiLink 3.0, 
 
 ### The apps
 
-**M2Y Tube** (1.25.07.68.0, 27.3 MB) is a touch-first YouTube client based on SmartTube (MIT). Quality runs from 360p up to 1080p60, defaulting to 720p30 on the hardware VP9 decoder. Tap for controls, swipe left or right for the previous or next video, and the quality and speed buttons sit above the controls. Music mode turns off the picture and shows the video cover, which saves data and CPU. Audio keeps playing in the background. It is ad-free without signing in; signing in with your own account is optional.
+**M2Y Tube** (1.25.07.68.3, 18.0 MB) is a touch-first YouTube client based on SmartTube (MIT). Quality runs from 360p up to 1080p60, defaulting to 480p30 on the hardware VP9 decoder. The last 5 opened videos play offline at no extra data cost (In memory, 0–25 in settings), and any video can be kept for good. Tap for controls, swipe left or right for the previous or next video, and the quality and speed buttons sit above the controls. Music mode turns off the picture and shows the video cover, which saves data and CPU. Audio keeps playing in the background. It is ad-free without signing in; signing in with your own account is optional.
 
 **M2Y Tools** (1.25.07.68.3, 6.2 MB) puts two apps into one, with one icon and one background process. Its equalizer (formerly M2Y EQ) is a system-wide equalizer written in plain Kotlin with no dependencies. It is a single effect on all system audio with 10 or 25 bands aligned to the real frequency bins of the engine, so every band is audible, with no limiter. Sound strength comes in Clean, Balanced and Strong; preset intensity runs from 0 to 200 %; bass and volume boost go up to +15 dB; and a level-matched comparison makes A/B listening fair. Presets: M2Y, BYD (reference), AI, Pop, Rock, Rap, Classical and Speech, with "save to M2Y" and a factory reset. It removes itself from the signal during phone and CarPlay calls, so no echo appears.
 
@@ -126,7 +126,7 @@ Its keyboard (formerly M2Y Board) is a lean Turkish Q keyboard based on HeliBoar
 
 ```
 adb connect <car-ip>:5555
-adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
+adb install -r M2YTube_1.25.07.68.3_arm64-v8a.apk
 adb install -r M2YTools_1.25.07.68.3.apk
 adb shell ime enable com.m2y.tools/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.tools/helium314.keyboard.latin.LatinIME
@@ -189,7 +189,7 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 | arm64-v8a işlemci | Derlemeler arm64-v8a'yı hedefler. |
 | Google hizmeti yok | Hiçbir yerde Google Play ya da GMS bağımlılığı yok; M2Y Tube oturum açmadan çalışır, M2Y Tools tamamen çevrim dışıdır. |
 | 1920×1080 yatay dokunmatik, 240 dpi | Büyük dokunma alanları, yatay öncelikli düzenler, dokunma ve kaydırma hareketleri; M2Y Browser yalnız 240 dpi kaynaklarını tutar. |
-| Donanım video çözücü | M2Y Tube en fazla 1080p60 ile sınırlıdır, varsayılanı donanım VP9 ile 720p30'dur (AV1 kapalı); M2Y TV donanım çözücüyü tek oynatıcıyla kullanır. |
+| Donanım video çözücü | M2Y Tube en fazla 1080p60 ile sınırlıdır, varsayılanı donanım VP9 ile 480p30'dur (AV1 kapalı); M2Y TV donanım çözücüyü tek oynatıcıyla kullanır. |
 | Uygulama başına 256 MB `heapgrowthlimit` | Küçük bellek ayak izi: Müzik modu görüntüyü kapatır, M2Y TV tek oynatıcı çalıştırır, APK'ler 53 KB ile 27,3 MB arasındadır. |
 | Infinity ses sistemi | M2Y Tools ekolayzırı motorun gerçek frekans kutularına göre ayarlıdır ve telefon görüşmesinde devreden çıkar. |
 | Stok yükleyici üçüncü taraf APK'leri engeller ("sürüş güvenliği") | Bir kez ADB ile araç hazırlığı, sonra araçta Obtainium ile kurulum ve güncelleme; ya da tek tıkla Windows kurucusu. |
@@ -197,7 +197,7 @@ Her karar, multimedya ekranının (BYD DiLink 3.0, Android 10, 8 çekirdekli Qua
 
 ### Uygulamalar
 
-**M2Y Tube** (1.25.07.68.0, 27,3 MB), SmartTube (MIT) tabanlı, dokunmatiği öne alan bir YouTube istemcisidir. Kalite 360p'den 1080p60'a kadar çıkar; varsayılan, donanım VP9 çözücüyle 720p30'dur. Denetimler için dokunun, önceki ya da sonraki video için sola veya sağa kaydırın; kalite ve hız düğmeleri denetimlerin üstündedir. Müzik modu görüntüyü kapatıp video kapağını gösterir, böylece veri ve işlemci tasarrufu sağlar. Ses arka planda çalmaya devam eder. Oturum açmadan reklamsızdır; isterseniz kendi hesabınızla oturum açabilirsiniz.
+**M2Y Tube** (1.25.07.68.3, 18,0 MB), SmartTube (MIT) tabanlı, dokunmatiği öne alan bir YouTube istemcisidir. Kalite 360p'den 1080p60'a kadar çıkar; varsayılan, donanım VP9 çözücüyle 480p30'dur. Açılan son 5 video ek veri harcamadan internetsiz oynar (Hafızadakiler, ayarlardan 0–25), istenen video kalıcı kaydedilir. Denetimler için dokunun, önceki ya da sonraki video için sola veya sağa kaydırın; kalite ve hız düğmeleri denetimlerin üstündedir. Müzik modu görüntüyü kapatıp video kapağını gösterir, böylece veri ve işlemci tasarrufu sağlar. Ses arka planda çalmaya devam eder. Oturum açmadan reklamsızdır; isterseniz kendi hesabınızla oturum açabilirsiniz.
 
 **M2Y Tools** (1.25.07.68.3, 6,2 MB) iki uygulamayı tek simge ve tek arka plan süreciyle birleştirir. Ekolayzırı (eski M2Y EQ) saf Kotlin ile yazılmış, bağımlılıksız, sistem genelinde çalışan bir ekolayzırdır. Tüm sistem sesine uygulanan tek bir efekttir; motorun gerçek frekans kutularına hizalı 10 ya da 25 bandı vardır (her bant duyulur); sınırlayıcı yoktur. Ses gücü Temiz, Dengeli ve Güçlü olarak seçilir; ön ayar yoğunluğu %0–200 arasındadır; bas ve ses yükseltme +15 dB'ye çıkar; eşit ses düzeyli karşılaştırma A/B dinlemeyi adil kılar. Ön ayarlar: M2Y, BYD (referans), AI, Pop, Rock, Rap, Klasik ve Konuşma; "M2Y'ye kaydet" ve fabrika ayarına dönüş de var. Telefon ve CarPlay görüşmesinde kendini sinyal yolundan çıkarır, böylece eko oluşmaz.
 
@@ -227,7 +227,7 @@ Klavyesi (eski M2Y Board), HeliBoard (GPL-3.0) tabanlı sade bir Türkçe Q klav
 
 ```
 adb connect <car-ip>:5555
-adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
+adb install -r M2YTube_1.25.07.68.3_arm64-v8a.apk
 adb install -r M2YTools_1.25.07.68.3.apk
 adb shell ime enable com.m2y.tools/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.tools/helium314.keyboard.latin.LatinIME
@@ -290,7 +290,7 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 | Процессор arm64-v8a | Сборки ориентированы на arm64-v8a. |
 | Нет сервисов Google | Нигде нет зависимости от Google Play или GMS; M2Y Tube работает без входа в аккаунт, M2Y Tools полностью автономно. |
 | Горизонтальный сенсорный экран 1920×1080, 240 dpi | Крупные области нажатия, горизонтальные макеты, жесты касания и смахивания; M2Y Browser хранит только ресурсы 240 dpi. |
-| Аппаратный видеодекодер | M2Y Tube ограничен 1080p60, по умолчанию использует аппаратный VP9 в 720p30 (AV1 выключен); M2Y TV работает с аппаратным декодером через один плеер. |
+| Аппаратный видеодекодер | M2Y Tube ограничен 1080p60, по умолчанию использует аппаратный VP9 в 480p30 (AV1 выключен); M2Y TV работает с аппаратным декодером через один плеер. |
 | `heapgrowthlimit` 256 МБ на приложение | Малый объём памяти: режим «Музыка» отключает картинку, M2Y TV запускает один плеер, APK занимают от 53 КБ до 27,3 МБ. |
 | Аудиосистема Infinity | Эквалайзер M2Y Tools настроен по реальным частотным ячейкам движка и отключается во время телефонных разговоров. |
 | Штатный установщик блокирует сторонние APK («безопасность движения») | Однократная подготовка автомобиля через ADB, затем установка и обновление прямо в машине через Obtainium; или установщик для Windows в один щелчок. |
@@ -298,7 +298,7 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 
 ### Приложения
 
-**M2Y Tube** (1.25.07.68.0, 27,3 МБ) — клиент YouTube с упором на сенсорное управление, основан на SmartTube (MIT). Качество от 360p до 1080p60, по умолчанию 720p30 на аппаратном декодере VP9. Нажмите, чтобы вызвать элементы управления; смахните влево или вправо для перехода к предыдущему или следующему видео; кнопки качества и скорости расположены над элементами управления. Режим «Музыка» отключает картинку и показывает обложку видео, что экономит трафик и процессор. Звук продолжает играть в фоне. Без входа в аккаунт реклама не показывается; при желании можно войти в свой аккаунт.
+**M2Y Tube** (1.25.07.68.3, 18,0 МБ) — клиент YouTube с упором на сенсорное управление, основан на SmartTube (MIT). Качество от 360p до 1080p60, по умолчанию 480p30 на аппаратном декодере VP9. Последние 5 открытых видео воспроизводятся без интернета без лишнего трафика (0–25 в настройках), любое видео можно сохранить навсегда. Нажмите, чтобы вызвать элементы управления; смахните влево или вправо для перехода к предыдущему или следующему видео; кнопки качества и скорости расположены над элементами управления. Режим «Музыка» отключает картинку и показывает обложку видео, что экономит трафик и процессор. Звук продолжает играть в фоне. Без входа в аккаунт реклама не показывается; при желании можно войти в свой аккаунт.
 
 **M2Y Tools** (1.25.07.68.3, 6,2 МБ) объединяет два приложения с одним значком и одним фоновым процессом. Его эквалайзер (бывший M2Y EQ) — системный эквалайзер на чистом Kotlin без зависимостей. Это один эффект на весь системный звук: 10 или 25 полос, выровненных по реальным частотным ячейкам движка (каждая полоса слышна), без ограничителя. Громкость звучания выбирается из режимов «Чистый», «Сбалансированный» и «Мощный»; интенсивность пресета — от 0 до 200 %; усиление баса и громкости — до +15 дБ; сравнение с выравниванием уровня делает A/B-прослушивание честным. Пресеты: M2Y, BYD (эталон), AI, Pop, Rock, Rap, «Классика» и «Речь», есть «Сохранить в M2Y» и сброс к заводским настройкам. Во время телефонных разговоров и звонков через CarPlay эквалайзер выходит из тракта, поэтому эхо не возникает.
 
@@ -328,7 +328,7 @@ Tek isteğim, bu depoya bir **⭐ vermeniz** ve diğer BYD sahipleriyle paylaşm
 
 ```
 adb connect <car-ip>:5555
-adb install -r M2YTube_1.25.07.68.0_arm64-v8a.apk
+adb install -r M2YTube_1.25.07.68.3_arm64-v8a.apk
 adb install -r M2YTools_1.25.07.68.3.apk
 adb shell ime enable com.m2y.tools/helium314.keyboard.latin.LatinIME
 adb shell ime set com.m2y.tools/helium314.keyboard.latin.LatinIME
