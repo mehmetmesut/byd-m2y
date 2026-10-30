@@ -17,8 +17,6 @@ $ProgressPreference = 'SilentlyContinue' # the progress bar makes Invoke-WebRequ
 # bu site barindirmaz; herkese acik topluluk deposundan indirilir ve SHA-256 ile dogrulanir.
 $unlocked = @{ Name = 'PackageInstallerUnlocked.apk'; Sha = 'd16175120b0aa051fc396a73510dc1fd43465e1c23e62f7f920af09ef6b276e9'
     Url = 'https://raw.githubusercontent.com/ahmada3mar/BYD/main/PackageInstaller.apk' }
-$obtainium = @{ Name = 'Obtainium_1.7.2_arm64-v8a.apk'; Sha = 'f6c83f6e948a701746a0fd7fb52e6ee485b3ca952e719f7cfa3d80567a1e2f13'
-    Url = 'https://github.com/ImranR98/Obtainium/releases/download/v1.7.2/app-arm64-v8a-release.apk' }
 Write-Host ''
 Write-Host '  M2Y Kurulum - Yesil Donusum Muhendisi - M2Y' -ForegroundColor Cyan
 Write-Host '  BYD Seal U DM-i (kablosuz ADB acik arac) icin'
@@ -70,30 +68,33 @@ if ($ip -notmatch ':') { $ip = "${ip}:5555" }
 $state = (& $adb -s $ip get-state 2>$null)
 if ($state -ne 'device') { throw "Araca baglanilamadi ($ip). Aracta kablosuz ADB acik mi, ayni agda misiniz?" }
 
-# 3) arac hazirligi (bir kez): kilitsiz yukleyici + Obtainium; sonrasi aracta, bilgisayarsiz
-Write-Host ''
-Write-Host '  Arac hazirligi (bir kez): kilitsiz paket yukleyici + Obtainium.'
-Write-Host '  Sonra M2Y uygulamalarini aracta Obtainium ile kurar ve guncellersiniz; bilgisayar gerekmez.'
-$prep = Read-Host '  Araci hazirlayalim mi? (E/h)'
-if ($prep.Trim() -notmatch '^[hHnN]') {
-    $f = Get-Verified $unlocked.Url $unlocked.Name $unlocked.Sha
-    if (Install-Apk $f $unlocked.Name) { Write-Host '  Geri almak icin: adb uninstall com.android.packageinstaller (fabrika yukleyicisine doner).' }
-    else { Write-Host '  Kilitsiz yukleyici olmadan Obtainium bu aracta kurulum yapamaz; uygulamalari asagidan bu betikle kurun.' -ForegroundColor Yellow }
-    $f = Get-Verified $obtainium.Url $obtainium.Name $obtainium.Sha
-    if (Install-Apk $f $obtainium.Name) {
-        & $adb -s $ip shell appops set dev.imranr.obtainium REQUEST_INSTALL_PACKAGES allow | Out-Null
-        Write-Host '  Obtainium: bilinmeyen kaynak izni verildi. Arka planda guncelleme denetimi icin BYD Otomatik Baslatma listesinde izin verin.' -ForegroundColor Yellow
-        Write-Host '  Aracta Cromite ile byd.mehmetmesut.com/#kurulum acin, "Tumunu Obtainium''a ekle" dugmesine dokunun.' -ForegroundColor Yellow
-    }
-}
-
-# 4) uygulama listesi ve ozetler (SHA256SUMS.txt: "<sha256>  <dosya>")
+# 3) uygulama listesi ve ozetler (SHA256SUMS.txt: "<sha256>  <dosya>")
 $sums = @{}
 (Invoke-WebRequest -UseBasicParsing ($base + 'SHA256SUMS.txt')).Content -split "`n" | ForEach-Object {
     if ($_ -match '^([0-9a-fA-F]{64})\s+\*?(\S+\.apk)\s*$') { $sums[$Matches[2]] = $Matches[1].ToLower() }
 }
 $files = @($sums.Keys | Sort-Object)
 if (-not $files) { throw 'Indirme listesi alinamadi.' }
+$store = $files | Where-Object { $_ -like 'M2YStore_*' } | Select-Object -First 1
+
+# 4) arac hazirligi (bir kez): kilitsiz yukleyici + M2Y Store; sonrasi aracta, bilgisayarsiz
+Write-Host ''
+Write-Host '  Arac hazirligi (bir kez): kilitsiz paket yukleyici + M2Y Store.'
+Write-Host '  Sonra M2Y uygulamalarini aracta M2Y Store ile kurar ve guncellersiniz; bilgisayar gerekmez.'
+$prep = Read-Host '  Araci hazirlayalim mi? (E/h)'
+if ($prep.Trim() -notmatch '^[hHnN]') {
+    $f = Get-Verified $unlocked.Url $unlocked.Name $unlocked.Sha
+    if (Install-Apk $f $unlocked.Name) { Write-Host '  Geri almak icin: adb uninstall com.android.packageinstaller (fabrika yukleyicisine doner).' }
+    else { Write-Host '  Kilitsiz yukleyici olmadan M2Y Store bu aracta kurulum yapamaz; uygulamalari asagidan bu betikle kurun.' -ForegroundColor Yellow }
+    if (-not $store) { throw 'M2Y Store indirme listesinde yok.' }
+    $f = Get-Verified ($base + $store) $store $sums[$store]
+    if (Install-Apk $f $store) {
+        & $adb -s $ip shell appops set com.m2y.store REQUEST_INSTALL_PACKAGES allow | Out-Null
+        Write-Host '  M2Y Store: kurulum izni verildi. Aracta M2Y Store''u acin, uygulamalarin yanindaki Kur dugmesine dokunun.' -ForegroundColor Yellow
+    }
+}
+
+# 5) uygulama listesi
 Write-Host ''
 for ($n = 0; $n -lt $files.Count; $n++) { Write-Host ("  {0}) {1}" -f ($n + 1), $files[$n]) }
 $pick = Read-Host '  Simdi buradan kurulacaklar (ornek 1,3 - bos birakirsaniz hepsi, 0 hicbiri)'
@@ -105,7 +106,7 @@ $chosen = if ($pick.Trim() -eq '0') { @() } elseif ($pick.Trim()) {
     }
 } else { $files }
 
-# 5) indir, SHA-256 ile dogrula, kur
+# 6) indir, SHA-256 ile dogrula, kur
 foreach ($f in $chosen) {
     $dest = Get-Verified ($base + $f) $f $sums[$f]
     if (-not (Install-Apk $dest $f)) { continue }
@@ -117,6 +118,7 @@ foreach ($f in $chosen) {
         & $adb -s $ip shell ime set com.m2y.tools/helium314.keyboard.latin.LatinIME | Write-Host
         Write-Host '  M2Y Tools: uygulamayi bir kez acin ve BYD Otomatik Baslatma listesinde izin verin (eski M2Y Board ve M2Y EQ kaldirildi).' -ForegroundColor Yellow
     }
+    if ($f -like 'M2YStore*') { & $adb -s $ip shell appops set com.m2y.store REQUEST_INSTALL_PACKAGES allow | Out-Null }
     if ($f -like 'M2YBYD*') {
         & $adb -s $ip shell pm grant com.m2y.byd android.permission.ACCESS_FINE_LOCATION | Out-Null
         Write-Host '  M2Y BYD: konum izni verildi. Yolculuk kaydini acarsaniz BYD Otomatik Baslatma listesinde izin verin.' -ForegroundColor Yellow
